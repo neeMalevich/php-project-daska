@@ -124,6 +124,7 @@ ul li {
   color: red;
   font-size: 16px;
 }
+
 .account__reset {
   font-weight: 700;
   font-size: 12px;
@@ -1024,3 +1025,4 @@ select::-ms-expand {
   align-items: center;
   justify-content: center;
 }
+
