@@ -2,4 +2,9 @@
 ```
 git clone https://github.com/neeMalevich/php-project-daska.git php-project-daska
 ```
-#### Создана страница /register.php, оталось авторизаци  забыл пароль
+
+### Скаать изенения с гита
+```
+git pull
+```
+#### Создана страница /register.php, /login.php
