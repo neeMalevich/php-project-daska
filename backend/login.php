@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (isset($_SESSION['user'])) {
+    header('Location: /profile.php');
+    exit;
+}
+?>
+
 <?php require_once __DIR__ . '/vendor/components/header.php'; ?>
 
     <section class="s-collection">
@@ -6,18 +15,21 @@
                 Войти
             </h1>
 
-            <form class="account" action="" method="POST">
+            <form class="account">
+                <div class="alert-danger"></div>
+
                 <label for="email">E-mail</label>
                 <input type="email" placeholder="E-mail" id="email" name="email" required>
+                <div class="error-message"></div>
 
                 <label for="password">Пароль</label>
                 <input type="password" placeholder="Пароль" id="password" name="password" required>
-                <a class="account__reset" href="#">Забыли пароль?</a>
+                <div class="error-message"></div>
 
-                <button class="account__btn" type="submit">
-            <span>
-                Войти
-            </span>
+                <button id="account-login" class="account__btn mt-55" type="submit">
+                    <span>
+                        Войти
+                    </span>
                 </button>
 
                 <a class="account__register" href="/register.php">Зарегистрироваться</a>
@@ -26,13 +38,13 @@
         </div>
     </section>
 
-    <?php if($_GET['register'] == 'success') : ?>
-        <div class="modal-order show-modal-order">
-            <div class="modal-order-content">
-                <span class="close-button-order">×</span>
-                <div class="modal_product_title">Пользователь <?= $_GET['email']; ?> зарегистрирован</div>
-            </div>
+<?php if ($_GET['register'] == 'success') : ?>
+    <div class="modal-order show-modal-order">
+        <div class="modal-order-content">
+            <span class="close-button-order">×</span>
+            <div class="modal_product_title">Пользователь <?= $_GET['email']; ?> зарегистрирован</div>
         </div>
-    <?php endif; ?>
+    </div>
+<?php endif; ?>
 
 <?php require_once __DIR__ . '/vendor/components/footer.php'; ?>

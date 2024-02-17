@@ -1,5 +1,10 @@
 <?php require_once __DIR__ . '/vendor/components/header.php'; ?>
 
+<?php
+//echo '<pre>';
+//echo print_r($_SESSION['user']);
+//echo '</pre>';
+?>
     <section class="s-collection">
         <div class="container">
             <h1 class="section-title">
@@ -12,15 +17,15 @@
 
                 <div class="account__wrapper">
                     <div class="account__title">
-                        Добро пожаловать, Солнышко
+                        Добро пожаловать, <?= $_SESSION['user']['username']; ?>
                     </div>
                     <form class="account" action="" method="POST">
 
                         <label for="username">Имя</label>
-                        <input type="text" placeholder="Имя" id="username" name="username" required>
+                        <input type="text" placeholder="Имя" value="<?= $_SESSION['user']['username']; ?>" id="username" name="username" required>
 
                         <label for="email">E-mail</label>
-                        <input type="email" placeholder="E-mail" id="email" name="email" required>
+                        <input type="email" placeholder="E-mail" value="<?= $_SESSION['user']['email']; ?>" id="email" name="email" required>
 
                         <label for="password">Действующий пароль</label>
                         <input type="password" placeholder="Действующий пароль" id="password" name="password" required>

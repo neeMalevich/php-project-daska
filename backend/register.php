@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (isset($_SESSION['user'])) {
+    header('Location: /profile.php');
+    exit;
+}
+?>
+
 <?php require_once __DIR__ . '/vendor/components/header.php'; ?>
 
     <section class="s-collection">

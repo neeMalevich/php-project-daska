@@ -1024,3 +1024,15 @@ select::-ms-expand {
   align-items: center;
   justify-content: center;
 }
+.alert-danger._is-error {
+  display: block;
+}
+.alert-danger {
+  background: #ffeeee;
+  color: #e83333;
+  font-size: 16px;
+  line-height: 250%;
+  border-radius: 10px;
+  padding: 16px 20px;
+  display: none;
+}
