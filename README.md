@@ -7,4 +7,4 @@ git clone https://github.com/neeMalevich/php-project-daska.git php-project-daska
 ```
 git pull
 ```
-#### Создана страница /register.php, /login.php
+#### Создана страница /register.php, /login.php, /profile.php
