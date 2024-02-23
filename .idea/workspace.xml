@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe0a09fd-702f-47c4-b230-deaa72b9f7a2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/assets/css/app.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/assets/css/app.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verstka/account-login.html" beforeDir="false" afterPath="$PROJECT_DIR$/verstka/account-login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verstka/account-wishlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/verstka/account-wishlist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verstka/card.html" beforeDir="false" afterPath="$PROJECT_DIR$/verstka/card.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verstka/catalog.html" beforeDir="false" afterPath="$PROJECT_DIR$/verstka/catalog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verstka/css/app.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/verstka/css/app.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verstka/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/verstka/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verstka/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/verstka/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verstka/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/verstka/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +38,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708477738264</updated>
-      <workItem from="1708477753128" duration="2119000" />
+      <workItem from="1708477753128" duration="3382000" />
     </task>
     <servers />
   </component>
