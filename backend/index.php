@@ -1,4 +1,6 @@
-<?php require_once __DIR__ . '/vendor/components/header.php'; ?>
+<?php
+require_once __DIR__ . '/vendor/components/header.php';
+?>
 
 <section class="s-banner">
     <div class="container">

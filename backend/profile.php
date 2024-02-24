@@ -7,9 +7,9 @@ if (!$_SESSION['user']) {
     exit;
 }
 
-echo '<pre>';
-echo print_r($_SESSION['user']);
-echo '</pre>';
+//echo '<pre>';
+//echo print_r($_SESSION['user']);
+//echo '</pre>';
 ?>
     <section class="s-collection">
         <div class="container">
@@ -28,12 +28,12 @@ echo '</pre>';
 
                     <?php if (isset($_SESSION['error_message']) && !empty($_SESSION['error_message'])): ?>
                         <div class="alert-danger _is-error account--error">
-                            Ошибка обнавления информации о пользователи.
+                            Ошибка обновления информации о пользователи.
                         </div>
                     <?php endif; ?>
                     <?php if (isset($_SESSION['users_update']) && !empty($_SESSION['users_update']) && empty($_SESSION['error_message'])) : ?>
                         <div class="alert-danger _is-error account--success">
-                            Информация обнавленена успешно.
+                            Информация обновлена успешно.
                         </div>
                     <?php endif; ?>
 
@@ -42,32 +42,18 @@ echo '</pre>';
                         <label for="username">Имя</label>
                         <input type="text" placeholder="Имя" value="<?= $_SESSION['user']['username']; ?>" id="username" name="username">
 
-                        <label for="surname">Фамилия</label>
-                        <input type="text" placeholder="Фамилия" value="<?= $_SESSION['user']['surname']; ?>" id="surname" name="surname" >
-
-                        <label for="patronymic">Отчество</label>
-                        <input type="text" placeholder="Отчество" value="<?= $_SESSION['user']['patronymic']; ?>" id="patronymic" name="patronymic" >
-
                         <label for="avatar">Изображение профиля</label>
-                        <div class="image-input">
-                            <?php if (isset($_SESSION['user']['avatar']) && !empty($_SESSION['user']['avatar'])) : ?>
-                            <input type="file" name="avatar" id="imageInput">
-                            <label for="imageInput" class="image-button" style="display: none;">
-                                <i class="far fa-image"></i>
-                                Выбрать изображение
-                            </label>
-                            <img src="uploads/<?= $_SESSION['user']['avatar']; ?>" class="image-preview" style="display: block;">
-                            <span class="change-image" style="display: block;">Заменить изображение</span>
-                            <?php else: ?>
-                                <input type="file" name="avatar" id="imageInput">
-                                <label for="imageInput" class="image-button">
-                                    <i class="far fa-image"></i>
-                                    Выбрать изображение
-                                </label>
-                                <img src="" class="image-preview">
-                                <span class="change-image">Заменить изображение</span>
-                            <?php endif; ?>
+
+                        <div class="file-input">
+                            <input class="choose" type="file" name="avatar" accept="image/*">
+                            <span class="button">Выбрать изображение</span>
+                            <span class="label">файл не выбран</span>
                         </div>
+                        <?php if (isset($_SESSION['user']['avatar']) && !empty($_SESSION['user']['avatar'])) : ?>
+                            <img class="imagess-preview" id="preview" src="uploads/<?= $_SESSION['user']['avatar']; ?>">
+                        <?php else: ?>
+                            <img class="imagess-preview" id="preview" src="">
+                        <?php endif; ?>
 
                         <label for="email">E-mail</label>
                         <input type="email" placeholder="E-mail" value="<?= $_SESSION['user']['email']; ?>" id="email" name="email">
@@ -114,7 +100,7 @@ echo '</pre>';
         </div>
     </section>
 
-    <script src="/assets/js/profile.js"></script>
+<!--    <script src="/assets/js/profile.js"></script>-->
 <?php
 unset($_SESSION['error_message']);
 unset($_SESSION['users_update']);

@@ -10,8 +10,6 @@ $error_messages = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = isset($_POST['username']) ? $_POST['username'] : null;
-    $surname = isset($_POST['surname']) ? $_POST['surname'] : null;
-    $patronymic = isset($_POST['patronymic']) ? $_POST['patronymic'] : null;
     $email = isset($_POST['email']) ? $_POST['email'] : null;
     $avatar = isset($_FILES['avatar']) ? $_FILES['avatar'] : null;
     $password = isset($_POST['password']) ? $_POST['password'] : null;
@@ -50,14 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['user']['username'] = $username;
     }
 
-    if (!empty($surname)) {
-        $_SESSION['user']['surname'] = $surname;
-    }
-
-    if (!empty($patronymic)) {
-        $_SESSION['user']['patronymic'] = $patronymic;
-    }
-
     if (!empty($avatar)) {
         $avatar_path = $_SERVER['DOCUMENT_ROOT'] . '/uploads/' . $avatar['name'];
 
@@ -74,11 +64,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['user']['email'] = $email;
         $_SESSION['users_update'] = 'success';
 
-        $update_query = "UPDATE users SET username='$username', surname='$surname', patronymic='$patronymic', email='$email', avatar='$avatar_path' WHERE id=$user_id";
+        $update_query = "UPDATE users SET username='$username', email='$email', avatar='$avatar_path' WHERE id=$user_id";
     }
-//    else {
-//        $update_query = "UPDATE users SET username='$username', surname='$surname', patronymic='$patronymic' WHERE id=$user_id";
-//    }
 
     mysqli_query($connect, $update_query);
 

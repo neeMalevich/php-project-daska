@@ -1057,13 +1057,13 @@ select::-ms-expand {
 .image-input label {
   display: block;
   color: #FFF;
-  background: #000;
+  background: #2B3B37;
   cursor: pointer;
   font-weight: 200;
   font-size: 24px;
   line-height: 250%;
   text-align: justify;
-  border: 1px solid #000;
+  border: 1px solid #2B3B37;
   border-radius: 10px;
   padding: 0px 20px;
   margin: 0;
@@ -1075,7 +1075,7 @@ select::-ms-expand {
 .image-input label:hover i {
   animation: shake 0.35s;
 }
-.image-input img {
+.image-preview {
   max-width: 175px;
   display: none;
   border-radius: 10px;
@@ -1089,7 +1089,7 @@ select::-ms-expand {
   line-height: 167%;
   letter-spacing: 0.1em;
   text-align: justify;
-  color: #000;
+  color: #2B3B37;
   margin-top: 24px;
 }
 
@@ -1114,4 +1114,135 @@ select::-ms-expand {
   width: 40px;
   height: 40px;
   object-fit: cover;
+}
+
+.file-input {
+  font-family: sans-serif;
+  display: inline-block;
+  text-align: left;
+  padding: 8px 0;
+  position: relative;
+  width: 100%;
+}
+.file-input > [type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 10;
+  cursor: pointer;
+}
+.file-input > .button {
+  display: inline-block;
+  cursor: pointer;
+  background: #2B3B37;
+  padding: 16px 16px;
+  margin-right: 8px;
+  font-size: 20px;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.file-input > .label {
+  color: #fff;
+  white-space: nowrap;
+  opacity: .7;
+  font-size: 13px;
+}
+#preview {
+  max-width: 180px;
+  margin-top: 16px;
+  border-radius: 10px;
+}
+
+
+.Header-nav ul ul {
+  display: block;
+}
+
+.Header-nav ul li {
+  position: relative;
+  width: 100%;
+}
+
+.Header-nav ul li a {
+  display: block;
+  transition: all .3s;
+  text-decoration: none;
+}
+
+.Header-nav ul li li a {
+  padding: 10px 35px;
+  font-size: 24px;
+}
+
+.Header-nav ul li.dropdown-nav::before {
+  content: '';
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  left: 127px;
+  top: 20px;
+  border-top: 2px solid #ccc;
+  border-right: 2px solid #ccc;
+  transform: rotate(135deg);
+}
+
+.Header-nav ul ul li.dropdown-nav::before {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  left: 15px;
+  top: 18px;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(45deg);
+}
+
+.Header-nav li.dropdown-nav ul {
+  opacity: 0;
+  position: absolute;
+  background: #2B3B37;
+  left: 0;
+  top: 64px;
+  width: 180px;
+  visibility: hidden;
+  transition: all .3s;
+  z-index: 4;
+  padding-left: 0;
+  box-shadow: -4px 0px 23px 0px rgba(0,0,0,0.75);
+}
+
+.Header-nav li.dropdown-nav:hover>ul,
+.Header-nav li.dropdown-nav ul li:hover>ul,
+.Header-nav li.dropdown-nav:active>ul,
+.Header-nav li.dropdown-nav ul li:active>ul {
+  opacity: 1;
+  visibility: visible;
+}
+
+.Header-nav li.dropdown-nav ul li a:hover,
+.Header-nav li.dropdown-nav ul li a:active,
+.Header-nav li.dropdown-nav ul li a {
+  color: #fff;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.6);
+  width: 100%;
+}
+
+.Header-nav li.dropdown-nav ul li:last-child a {
+  border-bottom: none;
+}
+
+.Header-nav li.dropdown-nav ul ul {
+  top: 0;
+  left: 182px;
+  background: #66ADF5;
+}
+
+.Header-nav li.dropdown-nav ul ul li a:hover,
+.Header-nav li.dropdown-nav ul ul li a:active {
+  background: #448ED3;
 }
