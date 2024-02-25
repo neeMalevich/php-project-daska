@@ -3,7 +3,6 @@ session_start();
 
 include __DIR__ . '/../function.php';
 
-
 ?>
 
 
@@ -33,34 +32,12 @@ include __DIR__ . '/../function.php';
 
             <div class="header__right">
 
-                <?php // include __DIR__ . '/menu.php'; ?>
-                <div class="Header-nav">
-                    <ul class="header__menu menu">
-                        <li>
-                            <a href="#">о нас</a>
-                        </li>
-
-                        <li class="dropdown-nav">
-                            <a class="dropdown-nav-btn" href="#">товары</a>
-                            <ul class="No-list">
-                                <li><a href="#">Стулья</a></li>
-                                <li><a href="#">Стулья</a></li>
-                                <li><a href="#">Стулья</a></li>
-                                <li><a href="#">Стулья</a></li>
-                            </ul>
-                        </li>
-
-
-                        <li>
-                            <a href="#">контакты</a>
-                        </li>
-                    </ul>
-                </div>
+                <?php include __DIR__ . '/menu.php'; ?>
 
                 <ul class="header__users">
                     <li>
                         <a href="/login.php">
-                            <?php if (isset($_SESSION['user']) && isset($_SESSION['user']['avatar']) && !empty($_SESSION['user']['avatar'])) : ?>
+                            <?php if (isset($_SESSION['user']['avatar']) && !empty($_SESSION['user']['avatar'])) : ?>
                                 <img class="header__users-img" src="uploads/<?= $_SESSION['user']['avatar']; ?>" alt="">
                             <?php else : ?>
                                 <img src="/assets/images/profile.png" alt="">

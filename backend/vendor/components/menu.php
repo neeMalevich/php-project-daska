@@ -1,9 +1,5 @@
 <?php
-include __DIR__ . '/../function.php';
-//$menu = get_menu();
-
-//debug($menu);
-/*
+$menu = get_menu();
 ?>
 
 <div class="Header-nav">
@@ -15,10 +11,13 @@ include __DIR__ . '/../function.php';
         <li class="dropdown-nav">
             <a class="dropdown-nav-btn" href="#">товары</a>
             <ul class="No-list">
-                <li><a href="#">Стулья</a></li>
-                <li><a href="#">Стулья</a></li>
-                <li><a href="#">Стулья</a></li>
-                <li><a href="#">Стулья</a></li>
+                <?php foreach($menu as $item) : ?>
+                    <li>
+                        <a href="/category.php?cat=<?= $item['id']; ?>">
+                            <?= $item['name']; ?>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
             </ul>
         </li>
 
@@ -28,5 +27,3 @@ include __DIR__ . '/../function.php';
         </li>
     </ul>
 </div>
-*/
-?>

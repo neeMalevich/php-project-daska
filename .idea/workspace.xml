@@ -3,16 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="fe0a09fd-702f-47c4-b230-deaa72b9f7a2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/assets/css/app.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/assets/css/app.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/assets/js/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/assets/js/profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/auth/account.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/auth/account.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/components/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/components/footer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/vendor/components/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/components/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/config/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/config/db.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php-project-daska.sql" beforeDir="false" afterPath="$PROJECT_DIR$/php-project-daska.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/components/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/components/menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/function.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/function.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php-project-daska.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +36,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\laba_daska\green_oak\backend\vendor\category" />
       <recent name="C:\OpenServer\domains\laba_daska\green_oak\backend\vendor" />
     </key>
   </component>
@@ -56,7 +51,7 @@
       <workItem from="1708477753128" duration="3382000" />
       <workItem from="1708745415996" duration="2000000" />
       <workItem from="1708776554488" duration="5693000" />
-      <workItem from="1708784214799" duration="5248000" />
+      <workItem from="1708784214799" duration="19044000" />
     </task>
     <servers />
   </component>
