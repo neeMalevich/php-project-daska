@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include __DIR__ . '/../function.php';
 
 global $connect;
@@ -16,23 +18,23 @@ $category = $_POST['category'];
 $query = "SELECT * FROM products";
 $conditions = [];
 
-if (isset($color) && !empty($color) && is_array($color)){
-    $conditions[] = "color_id IN (".implode(',',$color).")";
+if (isset($color) && !empty($color) && is_array($color)) {
+    $conditions[] = "color_id IN (" . implode(',', $color) . ")";
 }
 
-if (isset($category) && !empty($category)){
+if (isset($category) && !empty($category)) {
     $conditions[] = "category_id IN ($category)";
 }
 
-if (isset($material) && !empty($material) && is_array($material)){
-    $conditions[] = "material_id IN (".implode(',',$material).")";
+if (isset($material) && !empty($material) && is_array($material)) {
+    $conditions[] = "material_id IN (" . implode(',', $material) . ")";
 }
 
-if (isset($maker) && !empty($maker) && is_array($maker)){
-    $conditions[] = "maker_id IN (".implode(',',$maker).")";
+if (isset($maker) && !empty($maker) && is_array($maker)) {
+    $conditions[] = "maker_id IN (" . implode(',', $maker) . ")";
 }
 
-if ($priceMax && $priceMin){
+if ($priceMax && $priceMin) {
     $conditions[] = "price BETWEEN $priceMin AND $priceMax";
 }
 
@@ -48,7 +50,9 @@ while ($row = mysqli_fetch_assoc($result)) {
 }
 
 if (!empty($products)) :
-    foreach ($products as $product) : ?>
+    foreach ($products as $product) :
+        $whishlists = $_SESSION['user']['whishlist'];
+        ?>
 
         <div class="product__item">
             <div>
@@ -76,11 +80,16 @@ if (!empty($products)) :
                 <button class="card" data-id="<?= $product['product_id']; ?>">
                     <img src="/assets/images/shopping_cart.png" alt="">
                 </button>
-                <button class="whishlist" data-id="<?= $product['product_id']; ?>">
-                    <img src="/assets/images/favorite.png" alt="">
+
+                <button class="whishlist <?= in_array($product['product_id'], $whishlists) ? '_is-active' : ''; ?>"
+                        data-id="<?= $product['product_id']; ?>">
+                    <img class="whishlist-noactiv" src="/assets/images/favorite.png" alt="">
+                    <img class="whishlist-isactiv" src="/assets/images/favorite-active.png" alt="">
                 </button>
+
             </div>
         </div>
+
     <?php endforeach; ?>
 <?php else: ?>
     <div class="sidebar__top">Нет товаров</div>
