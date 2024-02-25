@@ -9,7 +9,7 @@ $menu = get_menu();
         </li>
 
         <li class="dropdown-nav">
-            <a class="dropdown-nav-btn" href="#">товары</a>
+            <a class="dropdown-nav-btn" href="/category.php">товары</a>
             <ul class="No-list">
                 <?php foreach($menu as $item) : ?>
                     <li>

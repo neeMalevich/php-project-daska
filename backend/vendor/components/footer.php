@@ -44,7 +44,7 @@
                         <a href="#">о нас</a>
                     </li>
                     <li>
-                        <a href="#">товары</a>
+                        <a href="/category.php">товары</a>
                     </li>
                     <li>
                         <a href="#">контакты</a>

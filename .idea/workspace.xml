@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe0a09fd-702f-47c4-b230-deaa72b9f7a2" name="Changes" comment="">
+    <list default="true" id="fe0a09fd-702f-47c4-b230-deaa72b9f7a2" name="Changes" comment="работата с категориями">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/components/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/components/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/components/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/components/menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/assets/css/app.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/assets/css/app.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/category/products.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/category/products.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/category/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/category/sidebar.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/vendor/function.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/function.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php-project-daska.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,8 +51,16 @@
       <workItem from="1708477753128" duration="3382000" />
       <workItem from="1708745415996" duration="2000000" />
       <workItem from="1708776554488" duration="5693000" />
-      <workItem from="1708784214799" duration="19044000" />
+      <workItem from="1708784214799" duration="28616000" />
     </task>
+    <task id="LOCAL-00001" summary="работата с категориями">
+      <created>1708823272423</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708823272423</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -68,5 +76,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="работата с категориями" />
+    <option name="LAST_COMMIT_MESSAGE" value="работата с категориями" />
   </component>
 </project>

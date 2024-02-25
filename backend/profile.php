@@ -6,10 +6,6 @@ if (!$_SESSION['user']) {
     header('Location: /login.php');
     exit;
 }
-
-//echo '<pre>';
-//echo print_r($_SESSION['user']);
-//echo '</pre>';
 ?>
     <section class="s-collection">
         <div class="container">

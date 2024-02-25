@@ -483,9 +483,9 @@ select::-ms-expand {
 }
 
 .catalog {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: grid;
+  grid-template-columns: 330px auto;
+  gap: 33px;
 }
 .catalog .catalog__inner {
   -ms-grid-columns: 1fr 1fr 1fr;
@@ -494,7 +494,7 @@ select::-ms-expand {
 }
 
 .sidebar {
-  width: 340px;
+  width: 100%;
   margin-right: 45px;
 }
 .sidebar__top {
@@ -541,8 +541,8 @@ select::-ms-expand {
   border-radius: 10px;
   font-weight: 500;
   font-size: 20px;
-  color: #2B3B37;
-  background: #fff;
+  /*color: #2B3B37;*/
+  /*background: #fff;*/
 }
 
 .catalog__more {
@@ -745,6 +745,7 @@ select::-ms-expand {
   color: #000;
   text-decoration: none;
   margin-bottom: 20px;
+  text-align: center;
 }
 .product__price {
   display: -webkit-box;
@@ -772,6 +773,15 @@ select::-ms-expand {
   width: 30px;
   height: 70px;
 }
+.product__feedback .whishlist .whishlist-isactiv,
+.product__feedback .whishlist._is-active .whishlist-noactiv{
+  display: none;
+}
+.product__feedback .whishlist .whishlist-noactiv,
+.product__feedback .whishlist._is-active .whishlist-isactiv{
+  display: block;
+}
+
 .product__feedback .card,
 .product__feedback .whishlist {
   padding: 0;
@@ -1245,4 +1255,27 @@ select::-ms-expand {
 .Header-nav li.dropdown-nav ul ul li a:hover,
 .Header-nav li.dropdown-nav ul ul li a:active {
   background: #448ED3;
+}
+
+.accordion-price_input{
+  background-color: transparent;
+  border: 3px solid #000;
+  width: 70px;
+  height: 18px;
+  transition: all 0.15s;
+}
+.accordion-price{
+  display: flex;
+  margin-bottom: 30px;
+}
+/*.accordion-price_item span{*/
+/*  margin-right: 6px;*/
+/*}*/
+.accordion-price_item{
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.accordion-price_item:last-child  {
+  margin-left: 5px;
 }

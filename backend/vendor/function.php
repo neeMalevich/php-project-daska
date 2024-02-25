@@ -70,7 +70,7 @@ function get_filter_column($table_name, $table_title_column)
 
     $tableFilterColumn = [];
     while ($row = mysqli_fetch_assoc($result)) {
-        $row["table"] = $table_title_column;
+        $row["filter_column"] = $table_title_column . '_' . $row[$table_title_column . '_id'];
         $tableFilterColumn[] = $row;
     }
 

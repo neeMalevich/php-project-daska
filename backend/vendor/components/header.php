@@ -45,9 +45,13 @@ include __DIR__ . '/../function.php';
                         </a>
                     </li>
                     <li>
-                        <a href="">
-                            <img src="/assets/images/whishlist.png" alt="">
-                        </a>
+                        <?php if (isset($_SESSION['user'])) : ?>
+                            <a href="/whishlist.php">
+                        <?php else : ?>
+                            <a href="/login.php">
+                        <?php endif; ?>
+                                <img src="/assets/images/whishlist.png" alt="">
+                            </a>
                     </li>
                     <li>
                         <a href="">
