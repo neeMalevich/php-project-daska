@@ -56,6 +56,40 @@ function check_table_exists($table_name) {
 }
 
 
+function get_count_wishlists($user){
+    global $connect;
+
+    if (!$user){
+        return false;
+    }
+
+    $query = "SELECT COUNT(user_id) AS wishlist_count FROM favorites WHERE user_id = $user";
+    $result = mysqli_query($connect, $query);
+
+    if ($result) {
+        $row = mysqli_fetch_assoc($result);
+        $count = $row['wishlist_count'];
+
+        return $count;
+    } else {
+        return false;
+    }
+}
+
+function get_wishlist($user){
+    if (!isset($user)){
+        return '<a class="whishlist-btn" href="/login.php"><img src="/assets/images/whishlist.png" alt=""></a>';
+    }
+
+    $whishlistCount = get_count_wishlists($user['id']);
+    $activeClass = ($whishlistCount > 0) ? '_is-active' : "";
+
+    return '<a class="whishlist-btn ' . $activeClass . '" href="/whishlist.php">
+        <img src="/assets/images/whishlist.png" alt="">
+        <span class="whishlist-count">' . $whishlistCount . '</span>
+    </a>';
+}
+
 function get_filter_column($table_name, $table_title_column)
 {
     global $connect;

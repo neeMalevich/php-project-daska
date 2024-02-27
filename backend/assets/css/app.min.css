@@ -781,6 +781,13 @@ select::-ms-expand {
 .product__feedback .whishlist._is-active .whishlist-isactiv{
   display: block;
 }
+.catalog__inner.wishlist .product__item{
+  height: -webkit-fill-available;
+}
+.catalog__inner.wishlist{
+  margin-left: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
 
 .product__feedback .card,
 .product__feedback .whishlist {
