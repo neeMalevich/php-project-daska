@@ -4,9 +4,13 @@
     <list default="true" id="fe0a09fd-702f-47c4-b230-deaa72b9f7a2" name="Changes" comment="работата с категориями">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/assets/css/app.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/assets/css/app.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/assets/js/ajax/whishlist.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/assets/js/ajax/whishlist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/assets/js/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/assets/js/profile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/category/product-item.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/category/product-item.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/vendor/category/products.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/category/products.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/category/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/category/sidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/category/whishlist-ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/category/whishlist-ajax.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/vendor/function.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/function.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/whishlist.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/whishlist.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +22,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -32,6 +44,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -52,6 +65,7 @@
       <workItem from="1708745415996" duration="2000000" />
       <workItem from="1708776554488" duration="5693000" />
       <workItem from="1708784214799" duration="28616000" />
+      <workItem from="1709052636933" duration="10927000" />
     </task>
     <task id="LOCAL-00001" summary="работата с категориями">
       <created>1708823272423</created>

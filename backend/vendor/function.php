@@ -22,7 +22,7 @@ function get_menu(){
     return $menu;
 }
 
-function get_products($id){
+function get_products_by_category($id){
     global $connect;
 
     if($id){
@@ -32,6 +32,24 @@ function get_products($id){
         $query = "SELECT * FROM products ORDER BY name";
     }
 
+    $result = mysqli_query($connect, $query);
+
+    $products = [];
+    while ($row = mysqli_fetch_assoc($result)){
+        $products[] = $row;
+    }
+
+    return $products;
+}
+
+function get_products_by_id($product_id){
+    global $connect;
+
+    if(!$product_id){
+        return false;
+    }
+
+    $query = "SELECT * FROM products WHERE product_id = $product_id";
     $result = mysqli_query($connect, $query);
 
     $products = [];
@@ -111,15 +129,36 @@ function get_filter_column($table_name, $table_title_column)
     return $tableFilterColumn;
 }
 
-//function check_category_exists($categoryId)
-//{
-//    global $connect;
-//
-//    $categoryId = (int)$categoryId;
-//
-//    $query = "SELECT COUNT(*) FROM products WHERE category_id = $categoryId";
-//    $result = mysqli_query($connect, $query);
-//    $row = mysqli_fetch_array($result);
-//
-//    return $row[0] > 0;
-//}
+function get_whishlict_user($user)
+{
+    global $connect;
+
+    if(!$user){
+        return false;
+    }
+
+    $query = "
+        SELECT 
+            products.product_id, 
+            products.name, 
+            products.description, 
+            products.price, 
+            products.price_old, 
+            products.image
+        FROM favorites
+        RIGHT JOIN 
+            products 
+        ON 
+            favorites.product_id = products.product_id
+        WHERE 
+            favorites.user_id = $user";
+
+    $result = mysqli_query($connect, $query);
+
+    $products = [];
+    while ($row = mysqli_fetch_assoc($result)){
+        $products[] = $row;
+    }
+
+    return $products;
+}

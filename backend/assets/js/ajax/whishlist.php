@@ -1,4 +1,5 @@
 <script>
+
     $(document).ready(function () {
         var selectedOptions = {
             'whishlist_add': '',
@@ -11,27 +12,28 @@
             const isActive = $(this).hasClass("_is-active");
 
             if (<?= isset($_SESSION['user']) ? 'true' : 'false'; ?>) {
+                const whishlistCount = parseInt($('.whishlist-count').text());
+
                 if (isActive) {
                     $(this).removeClass("_is-active");
 
-                    $('.whishlist-btn .whishlist-count').text(function (index, text) {
-                        return parseInt(text) - 1;
-                    });
-
                     const index = selectedOptions['whishlist'] ? selectedOptions['whishlist'].indexOf(product_id) : -1;
+
                     if (index !== -1) {
                         selectedOptions['whishlist'].splice(index, 1);
                     }
 
                     selectedOptions['whishlist_remove'] = product_id;
+                    selectedOptions['whishlist_add'] = '';
 
                     updateData(selectedOptions);
+
+                    $('.whishlist-count').text(whishlistCount - 1); // Decrement whishlist-count
+                    if (whishlistCount - 1 === 0) {
+                        $('.whishlist-btn').removeClass('_is-active');
+                    }
                 } else {
                     $(this).addClass('_is-active');
-
-                    $('.whishlist-btn .whishlist-count').text(function (index, text) {
-                        return parseInt(text) + 1;
-                    });
 
                     if (!selectedOptions['whishlist']) {
                         selectedOptions['whishlist'] = [];
@@ -44,14 +46,12 @@
                     }
 
                     selectedOptions['whishlist_add'] = product_id;
+                    selectedOptions['whishlist_remove'] = '';
 
                     updateData(selectedOptions);
-                }
 
-                // Дополнительная проверка для удаления класса _is-active
-                const whishlistCount = parseInt($('.whishlist-btn .whishlist-count').text());
-                if (whishlistCount === 0) {
-                    $('.whishlist-btn').removeClass('_is-active');
+                    $('.whishlist-count').text(whishlistCount + 1); // Increment whishlist-count
+                    $('.whishlist-btn').addClass('_is-active');
                 }
             } else {
                 $(".modal-order").addClass("show-modal-order");
@@ -72,5 +72,6 @@
             });
         }
     });
+
 </script>
 

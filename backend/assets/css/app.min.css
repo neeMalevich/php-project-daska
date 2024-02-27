@@ -1286,3 +1286,6 @@ select::-ms-expand {
 .accordion-price_item:last-child  {
   margin-left: 5px;
 }
+.catalog__inner.wishlist._is-active {
+  grid-template-columns: auto;
+}

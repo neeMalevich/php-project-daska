@@ -1,4 +1,4 @@
-<div class="product__item">
+<div class="product__item <?= $_SERVER['REQUEST_URI'] == '/whishlist.php' ? ' product__item-whishlist' : ''; ?>">
     <div>
         <div class="product__img">
             <?php if ($product['image']) : ?>

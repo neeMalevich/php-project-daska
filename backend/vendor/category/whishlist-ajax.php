@@ -41,7 +41,6 @@ if (isset($_SESSION['user']['id'])) {
     }
 }
 
-debug($_SESSION['user']);
 ?>
 
 
