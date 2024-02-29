@@ -50,9 +50,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 }
 
 if (!empty($products)) :
-    foreach ($products as $product) :
-        $whishlists = $_SESSION['user']['whishlist'];
-        ?>
+    foreach ($products as $product) : ?>
 
         <?php include __DIR__ . '/product-item.php'?>
 

@@ -1,3 +1,9 @@
+<?php
+session_start();
+$whishlists = $_SESSION['user']['whishlist'];
+
+?>
+
 <div class="product__item <?= $_SERVER['REQUEST_URI'] == '/whishlist.php' ? ' product__item-whishlist' : ''; ?>">
     <div>
         <div class="product__img">
@@ -25,8 +31,11 @@
             <img src="/assets/images/shopping_cart.png" alt="">
         </button>
 
-        <button class="whishlist <?= in_array($product['product_id'], $whishlists) ? '_is-active' : ''; ?>"
-                data-id="<?= $product['product_id']; ?>">
+        <button
+            class="whishlist <?= (is_array($whishlists) && in_array($product['product_id'], $whishlists)) ? '_is-active' : ''; ?>"
+            data-id="<?= $product['product_id']; ?>"
+            data-user_id="<?= isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : ''; ?>"
+        >
             <img class="whishlist-noactiv" src="/assets/images/favorite.png" alt="">
             <img class="whishlist-isactiv" src="/assets/images/favorite-active.png" alt="">
         </button>

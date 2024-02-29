@@ -48,7 +48,7 @@ include __DIR__ . '/../function.php';
                         <?= get_wishlist($_SESSION['user']); ?>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="/card.php">
                             <img src="/assets/images/card.png" alt="">
                         </a>
                     </li>

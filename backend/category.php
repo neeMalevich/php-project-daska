@@ -45,5 +45,6 @@ require_once __DIR__ . '/vendor/components/header.php';
 
     <?php include __DIR__ . '/assets/js/ajax/whishlist.php'; ?>
     <?php include __DIR__ . '/assets/js/ajax/filter.php'; ?>
+    <script src="/assets/js/ajax/cart.js"></script>
 
 <?php require_once __DIR__ . '/vendor/components/footer.php'; ?>
