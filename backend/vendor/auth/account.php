@@ -49,15 +49,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (!empty($avatar)) {
-        $avatar_path = $_SERVER['DOCUMENT_ROOT'] . '/uploads/' . $avatar['name'];
+        $avatar_path_local = $_SERVER['DOCUMENT_ROOT'] . '/uploads/' . $avatar['name'];
+        $avatar_path = '/uploads/' . $avatar['name'];
 
-        if (move_uploaded_file($avatar['tmp_name'], $avatar_path)) {
-            $_SESSION['user']['avatar'] = $avatar['name'];
+        if (move_uploaded_file($avatar['tmp_name'], $avatar_path_local)) {
+            $_SESSION['user']['avatar'] = '/uploads/' . $avatar['name'];
         } else {
-            $_SESSION['error_message']['avatar'] = "Ошибка пр загрузке изображения";
+            $_SESSION['error_message']['avatar'] = "Ошибка при загрузке изображения";
         }
-
-
     }
 
     if (!empty($email)) {

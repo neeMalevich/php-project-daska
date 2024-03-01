@@ -6,7 +6,13 @@ if (!$_SESSION['user']) {
     header('Location: /login.php');
     exit;
 }
+
+//echo '<pre>';
+//echo print_r($_SESSION['user']['register'] == 'success');
+//echo '</pre>';
+////register
 ?>
+
     <section class="s-collection">
         <div class="container">
             <h1 class="section-title">
@@ -45,9 +51,12 @@ if (!$_SESSION['user']) {
                             <span class="button">Выбрать изображение</span>
                             <span class="label">файл не выбран</span>
                         </div>
-                        <?php if (isset($_SESSION['user']['avatar']) && !empty($_SESSION['user']['avatar'])) : ?>
-                            <img class="imagess-preview" id="preview" src="uploads/<?= $_SESSION['user']['avatar']; ?>">
-                        <?php else: ?>
+
+                        <?php
+                        $avatar = get_user_avatar($_SESSION['user']);
+                        if (!empty($avatar) && $avatar !== null) : ?>
+                            <img class="imagess-preview" id="preview" src="<?= $avatar; ?>">
+                        <?php else : ?>
                             <img class="imagess-preview" id="preview" src="">
                         <?php endif; ?>
 
@@ -96,8 +105,17 @@ if (!$_SESSION['user']) {
         </div>
     </section>
 
-<!--    <script src="/assets/js/profile.js"></script>-->
+<?php if ($_SESSION['user']['register'] == 'success') : ?>
+    <div class="modal-order show-modal-order">
+        <div class="modal-order-content">
+            <span class="close-button-order">×</span>
+            <div class="modal_product_title">Пользователь успешно зарегистрирован</div>
+        </div>
+    </div>
+<?php endif; ?>
+
 <?php
+unset($_SESSION['user']['register']);
 unset($_SESSION['error_message']);
 unset($_SESSION['users_update']);
 ?>

@@ -37,8 +37,10 @@ include __DIR__ . '/../function.php';
                 <ul class="header__users">
                     <li>
                         <a href="/login.php">
-                            <?php if (isset($_SESSION['user']['avatar']) && !empty($_SESSION['user']['avatar'])) : ?>
-                                <img class="header__users-img" src="uploads/<?= $_SESSION['user']['avatar']; ?>" alt="">
+                            <?php
+                            $avatar = get_user_avatar($_SESSION['user']);
+                            if (!empty($avatar) && $avatar !== null) : ?>
+                                <img class="header__users-img" src="<?= $avatar; ?>" alt="">
                             <?php else : ?>
                                 <img src="/assets/images/profile.png" alt="">
                             <?php endif; ?>

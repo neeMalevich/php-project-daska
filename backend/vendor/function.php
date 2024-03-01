@@ -94,6 +94,23 @@ function get_count_wishlists($user){
     }
 }
 
+function get_user_avatar($user){
+    global $connect;
+
+    if(!$user){
+        return false;
+    }
+
+    $user_id = $user['id'];
+    $query = "SELECT avatar FROM users where id = $user_id";
+
+    $result = mysqli_query($connect, $query);
+
+    $avatar = mysqli_fetch_assoc($result);
+
+    return $avatar['avatar'];
+}
+
 function get_wishlist($user){
     if (!isset($user)){
         return '<a class="whishlist-btn" href="/login.php"><img src="/assets/images/whishlist.png" alt=""></a>';

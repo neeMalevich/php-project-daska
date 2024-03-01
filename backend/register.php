@@ -15,7 +15,7 @@ if (isset($_SESSION['user'])) {
                 Зарегистрироваться
             </h1>
 
-            <form class="account">
+            <form id="form-register" class="account">
                 <label for="username">Имя</label>
                 <input type="text" placeholder="Имя" id="username" name="username" required>
                 <div class="error-message"></div>
@@ -44,5 +44,7 @@ if (isset($_SESSION['user'])) {
 
         </div>
     </section>
+
+    <script src="/assets/js/register.js"></script>
 
 <?php require_once __DIR__ . '/vendor/components/footer.php'; ?>

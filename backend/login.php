@@ -38,13 +38,4 @@ if (isset($_SESSION['user'])) {
         </div>
     </section>
 
-<?php if ($_GET['register'] == 'success') : ?>
-    <div class="modal-order show-modal-order">
-        <div class="modal-order-content">
-            <span class="close-button-order">×</span>
-            <div class="modal_product_title">Пользователь <?= $_GET['email']; ?> зарегистрирован</div>
-        </div>
-    </div>
-<?php endif; ?>
-
 <?php require_once __DIR__ . '/vendor/components/footer.php'; ?>

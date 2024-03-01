@@ -26,22 +26,6 @@ if (mysqli_num_rows($check_email) > 0) {
 
 $error_messages = [];
 
-if ($username === '') {
-    $error_messages['username'] = 'Поле "Имя" не заполнено';
-}
-
-if ($password === '') {
-    $error_messages['password'] = 'Поле "Пароль" не заполнено';
-}
-
-if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $error_messages['email'] = 'Некорректный E-mail';
-}
-
-if ($password_confirm === '') {
-    $error_messages['password_confirm'] = 'Поле "Повторите пароль" не заполнено';
-}
-
 if (!empty($error_messages)) {
     $response = [
         "status" => false,
@@ -58,6 +42,16 @@ if ($password === $password_confirm) {
     $password = md5($password);
 
     mysqli_query($connect, "INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES (NULL, '$username', '$email', '$password')");
+
+    $user = [
+        "id" => mysqli_insert_id($connect),
+        "username" => $username,
+        "email" => $email,
+        "password" => $password,
+        "register" => 'success',
+    ];
+
+    $_SESSION['user'] = $user;
 
     $response = [
         "status" => true,
