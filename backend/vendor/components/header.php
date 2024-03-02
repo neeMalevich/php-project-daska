@@ -47,12 +47,10 @@ include __DIR__ . '/../function.php';
                         </a>
                     </li>
                     <li>
-                        <?= get_wishlist($_SESSION['user']); ?>
+                        <?= get_wishlist_icon_by_count($_SESSION['user']); ?>
                     </li>
                     <li>
-                        <a href="/card.php">
-                            <img src="/assets/images/card.png" alt="">
-                        </a>
+                        <?= get_cart_icon_by_count($_SESSION['user']); ?>
                     </li>
                 </ul>
             </div>
@@ -60,27 +58,3 @@ include __DIR__ . '/../function.php';
         </div>
     </div>
 </header>
-
-<style>
-    .whishlist-btn{
-        position: relative;
-    }
-    .whishlist-btn._is-active .whishlist-count{
-        display: flex;
-    }
-    .whishlist-count{
-        display: none;
-        position: absolute;
-        width: 16px;
-        height: 16px;
-        background: #fff;
-        right: 0;
-        top: 12px;
-        border-radius: 50%;
-        color: #2B3B37;
-        font-size: 12px;
-        align-items: center;
-        justify-content: center;
-        box-shadow: -1px 2px 23px 0px rgba(0,0,0,0.75);
-    }
-</style>

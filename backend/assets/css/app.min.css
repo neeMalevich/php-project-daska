@@ -96,6 +96,17 @@ ul li {
   color: #000;
   margin-top: 24px;
 }
+.account textarea{
+  height: auto;
+  width: 559px !important;
+  max-width: 559px;
+  line-height: 1.4 !important;
+  font-weight: 400;
+  font-size: 16px;
+  color: #646867;
+  letter-spacing: 0.1em;
+}
+.account textarea,
 .account input {
   -webkit-transition: border-color 0.3s ease-in-out;
   transition: border-color 0.3s ease-in-out;
@@ -217,7 +228,30 @@ ul li {
 .accaunt-sidebar__link._is-active {
   font-weight: 700;
 }
-
+.basket-btn,
+.whishlist-btn{
+  position: relative;
+}
+.basket-btn._is-active .basket-count,
+.whishlist-btn._is-active .whishlist-count{
+  display: flex;
+}
+.basket-count,
+.whishlist-count{
+  display: none;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  right: 0;
+  top: 12px;
+  border-radius: 50%;
+  color: #2B3B37;
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: -1px 2px 23px 0px rgba(0,0,0,0.75);
+}
 .wishlist {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -311,7 +345,13 @@ ul li {
 }
 
 .card__inner {
-  margin-bottom: 250px;
+  margin-bottom: 75px;
+}
+.card__bottom{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 230px;
+  align-items: center;
 }
 
 .card__top {
@@ -324,6 +364,9 @@ ul li {
   margin-bottom: 6px;
 }
 
+.card:not(:first-child) {
+  border-top: 0px solid #000;
+}
 .card {
   position: relative;
   display: -ms-grid;
@@ -349,12 +392,21 @@ ul li {
      object-fit: contain;
 }
 .card__title {
-  margin-top: 40px;
-  margin-bottom: 55px;
+  margin-top: 28px;
+  margin-bottom: 6px;
   font-weight: 400;
   font-size: 32px;
   line-height: 125%;
   text-align: justify;
+  color: #000;
+}
+.card__info-item:last-child{
+  margin-bottom: 32px;
+}
+.card__info-item{
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 200%;
   color: #000;
 }
 .card__btns {
@@ -373,6 +425,14 @@ ul li {
           align-items: center;
   cursor: pointer;
 }
+.card__bottom .card__btn{
+  font-weight: 400;
+  font-size: 24px;
+  color: #fff;
+  padding: 11px 22px;
+  text-decoration: none;
+  line-height: 1;
+}
 .card__btn {
   font-weight: 400;
   font-size: 14px;
@@ -384,22 +444,16 @@ ul li {
   border: 1px solid #2B3B37;
   border-radius: 5px;
 }
+.card__right .select{
+  margin-right: 112px;
+}
 .card__right {
   position: relative;
   padding-left: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
 }
 .card__right::before {
   content: "";
@@ -432,7 +486,6 @@ ul li {
   font-weight: 400;
   font-size: 24px;
   color: #000;
-  margin-bottom: 45px;
 }
 
 select {

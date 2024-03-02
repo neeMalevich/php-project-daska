@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 24 2024 г., 20:08
+-- Время создания: Мар 02 2024 г., 04:06
 -- Версия сервера: 10.6.7-MariaDB
 -- Версия PHP: 7.4.29
 
@@ -30,6 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `category_parent` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -37,11 +38,11 @@ CREATE TABLE `categories` (
 -- Дамп данных таблицы `categories`
 --
 
-INSERT INTO `categories` (`id`, `name`, `category_parent`) VALUES
-(1, 'Стулья', NULL),
-(2, 'Тумбы', NULL),
-(3, 'Полки', NULL),
-(4, 'Столы', NULL);
+INSERT INTO `categories` (`id`, `name`, `image`, `category_parent`) VALUES
+(1, 'Стулья', 'styl.png', NULL),
+(2, 'Тумбы', 'tumb.png', NULL),
+(3, 'Полки', 'polka-dub.png', NULL),
+(4, 'Столы', 'stol.png', NULL);
 
 -- --------------------------------------------------------
 
@@ -76,6 +77,15 @@ CREATE TABLE `favorites` (
   `user_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `favorites`
+--
+
+INSERT INTO `favorites` (`favorit_id`, `user_id`, `product_id`) VALUES
+(320, 15, 9),
+(323, 15, 2),
+(328, 15, 4);
 
 -- --------------------------------------------------------
 
@@ -177,9 +187,21 @@ INSERT INTO `products` (`product_id`, `name`, `description`, `price`, `price_old
 CREATE TABLE `product_order` (
   `id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `order_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `order_id` int(11) DEFAULT NULL,
   `count` int(22) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `product_order`
+--
+
+INSERT INTO `product_order` (`id`, `product_id`, `user_id`, `order_id`, `count`) VALUES
+(28, 8, 15, NULL, 1),
+(29, 3, 15, NULL, 1),
+(30, 9, 15, NULL, 1),
+(31, 4, 15, NULL, 2),
+(32, 6, 15, NULL, 3);
 
 -- --------------------------------------------------------
 
@@ -202,7 +224,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `avatar`, `role`) VALUES
 (7, 'йййййtesttest@gmail.com', 'testtest@gmail.com', 'f7c504b5c111d18ea57b2b73b01e17c5', 'C:/OpenServer/domains/laba_daska/green_oak/backend/uploads/thumbnail_1633343479.png', NULL),
-(12, 'Иван', 'teest@gmail.com', '8439e2ca1ae47f49b05ec55991ea5b28', '', NULL);
+(12, 'Иван', 'teest@gmail.com', '8439e2ca1ae47f49b05ec55991ea5b28', '', NULL),
+(13, 'malevich@gmail.com', 'malevich@gmail.com', '8277e0910d750195b448797616e091ad', NULL, NULL),
+(14, 'malevich@gmail.com', 'msalevich@gmail.com', 'b8b1f1e70e65bdf38a6eba18a45847df', NULL, NULL),
+(15, 'dadsdss@gmail.com', 'dadsdss@gmail.com', 'd76cd16868d5cdde5af973bef9b4046c', '/uploads/Rectangle.png', NULL);
 
 --
 -- Индексы сохранённых таблиц
@@ -263,7 +288,8 @@ ALTER TABLE `products`
 ALTER TABLE `product_order`
   ADD PRIMARY KEY (`id`),
   ADD KEY `product_id` (`product_id`),
-  ADD KEY `order_id` (`order_id`);
+  ADD KEY `order_id` (`user_id`),
+  ADD KEY `order_id_2` (`order_id`);
 
 --
 -- Индексы таблицы `users`
@@ -291,7 +317,7 @@ ALTER TABLE `colors`
 -- AUTO_INCREMENT для таблицы `favorites`
 --
 ALTER TABLE `favorites`
-  MODIFY `favorit_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `favorit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=329;
 
 --
 -- AUTO_INCREMENT для таблицы `makers`
@@ -321,13 +347,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT для таблицы `product_order`
 --
 ALTER TABLE `product_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
@@ -339,6 +365,12 @@ ALTER TABLE `users`
 ALTER TABLE `favorites`
   ADD CONSTRAINT `favorites_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `favorites_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ограничения внешнего ключа таблицы `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `product_order` (`user_id`);
 
 --
 -- Ограничения внешнего ключа таблицы `products`
@@ -353,8 +385,9 @@ ALTER TABLE `products`
 -- Ограничения внешнего ключа таблицы `product_order`
 --
 ALTER TABLE `product_order`
-  ADD CONSTRAINT `product_order_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `product_order_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `product_order_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
+  ADD CONSTRAINT `product_order_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `product_order_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

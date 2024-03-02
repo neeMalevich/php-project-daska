@@ -74,19 +74,30 @@ function check_table_exists($table_name) {
 }
 
 
-function get_count_wishlists($user){
+function get_count_product($user, $count_name, $table, $total = false)
+{
     global $connect;
 
-    if (!$user){
+    if (!$user) {
         return false;
     }
 
-    $query = "SELECT COUNT(user_id) AS wishlist_count FROM favorites WHERE user_id = $user";
+    if ($total) {
+        $query = "SELECT SUM(count) AS total_count FROM $table WHERE user_id = $user";
+    } else {
+        $query = "SELECT COUNT(user_id) AS $count_name FROM $table WHERE user_id = $user";
+    }
+
     $result = mysqli_query($connect, $query);
 
     if ($result) {
         $row = mysqli_fetch_assoc($result);
-        $count = $row['wishlist_count'];
+
+        $count = $row[$count_name];
+
+        if ($total && isset($row['total_count']) && !empty($row['total_count'])) {
+            $count = $row['total_count'];
+        }
 
         return $count;
     } else {
@@ -111,17 +122,32 @@ function get_user_avatar($user){
     return $avatar['avatar'];
 }
 
-function get_wishlist($user){
+function get_wishlist_icon_by_count($user){
     if (!isset($user)){
         return '<a class="whishlist-btn" href="/login.php"><img src="/assets/images/whishlist.png" alt=""></a>';
     }
 
-    $whishlistCount = get_count_wishlists($user['id']);
+//    debug(get_count_product($user['id']));
+    $whishlistCount = get_count_product($user['id'], 'wishlist_count', 'favorites');
     $activeClass = ($whishlistCount > 0) ? '_is-active' : "";
 
     return '<a class="whishlist-btn ' . $activeClass . '" href="/whishlist.php">
         <img src="/assets/images/whishlist.png" alt="">
         <span class="whishlist-count">' . $whishlistCount . '</span>
+    </a>';
+}
+
+function get_cart_icon_by_count($user){
+    if (!isset($user)){
+        return '<a class="basket-btn" href="/login.php"><img src="/assets/images/card.png" alt=""></a>';
+    }
+
+    $basketCount = get_count_product($user['id'], 'basket_count', 'product_order', true);
+    $activeClass = ($basketCount > 0) ? '_is-active' : "";
+
+    return '<a class="basket-btn ' . $activeClass . '" href="/basket.php">
+        <img src="/assets/images/card.png" alt="">
+        <span class="basket-count">' . $basketCount . '</span>
     </a>';
 }
 

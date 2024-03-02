@@ -6,11 +6,6 @@ if (!$_SESSION['user']) {
     header('Location: /login.php');
     exit;
 }
-
-//echo '<pre>';
-//echo print_r($_SESSION['user']['register'] == 'success');
-//echo '</pre>';
-////register
 ?>
 
     <section class="s-collection">

@@ -4,13 +4,12 @@
     <list default="true" id="fe0a09fd-702f-47c4-b230-deaa72b9f7a2" name="Changes" comment="работата с категориями">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/assets/css/app.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/assets/css/app.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/assets/js/ajax/whishlist.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/assets/js/ajax/whishlist.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/assets/js/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/assets/js/profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/category/product-item.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/category/product-item.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/category/products.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/category/products.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/category/whishlist-ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/category/whishlist-ajax.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/assets/js/ajax/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/assets/js/ajax/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/category/cart-ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/cart/cart-ajax.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/components/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/components/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/vendor/function.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/function.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/whishlist.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/whishlist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/green_oak.sql" beforeDir="false" afterPath="$PROJECT_DIR$/green_oak.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,9 +48,20 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\laba_daska\green_oak\backend\vendor\cart" />
       <recent name="C:\OpenServer\domains\laba_daska\green_oak\backend\vendor\category" />
       <recent name="C:\OpenServer\domains\laba_daska\green_oak\backend\vendor" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="basket.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/green_oak/backend/basket.php" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.basket.php" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -66,6 +76,7 @@
       <workItem from="1708776554488" duration="5693000" />
       <workItem from="1708784214799" duration="28616000" />
       <workItem from="1709052636933" duration="10927000" />
+      <workItem from="1709326939913" duration="11293000" />
     </task>
     <task id="LOCAL-00001" summary="работата с категориями">
       <created>1708823272423</created>
