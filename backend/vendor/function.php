@@ -83,7 +83,7 @@ function get_count_product($user, $count_name, $table, $total = false)
     }
 
     if ($total) {
-        $query = "SELECT SUM(count) AS total_count FROM $table WHERE user_id = $user";
+        $query = "SELECT SUM(count) AS $count_name FROM $table WHERE user_id = $user AND (order_id IS NULL OR order_id = '')";
     } else {
         $query = "SELECT COUNT(user_id) AS $count_name FROM $table WHERE user_id = $user";
     }
@@ -94,10 +94,6 @@ function get_count_product($user, $count_name, $table, $total = false)
         $row = mysqli_fetch_assoc($result);
 
         $count = $row[$count_name];
-
-        if ($total && isset($row['total_count']) && !empty($row['total_count'])) {
-            $count = $row['total_count'];
-        }
 
         return $count;
     } else {
@@ -127,7 +123,6 @@ function get_wishlist_icon_by_count($user){
         return '<a class="whishlist-btn" href="/login.php"><img src="/assets/images/whishlist.png" alt=""></a>';
     }
 
-//    debug(get_count_product($user['id']));
     $whishlistCount = get_count_product($user['id'], 'wishlist_count', 'favorites');
     $activeClass = ($whishlistCount > 0) ? '_is-active' : "";
 
@@ -144,14 +139,15 @@ function get_cart_icon_by_count($user){
 
     $basketCount = get_count_product($user['id'], 'basket_count', 'product_order', true);
     $activeClass = ($basketCount > 0) ? '_is-active' : "";
+    $isCount = (isset($basketCount) && !empty($basketCount)) ? $basketCount : 0;
 
     return '<a class="basket-btn ' . $activeClass . '" href="/basket.php">
         <img src="/assets/images/card.png" alt="">
-        <span class="basket-count">' . $basketCount . '</span>
+        <span class="basket-count">' . $isCount . '</span>
     </a>';
 }
 
-function get_filter_column($table_name, $table_title_column)
+function get_filter_column($table_name, $table_title_column, $filter_id = null)
 {
     global $connect;
 
@@ -160,7 +156,13 @@ function get_filter_column($table_name, $table_title_column)
         return false;
     }
 
-    $query = "SELECT * FROM $table_name ORDER BY $table_title_column";
+    if ($filter_id){
+        $product_filter_id = $table_title_column . '_id';
+        $query = "SELECT $table_title_column FROM $table_name WHERE $product_filter_id = $filter_id";
+    } else{
+        $query = "SELECT * FROM $table_name ORDER BY $table_title_column";
+    }
+
     $result = mysqli_query($connect, $query);
 
     $tableFilterColumn = [];
@@ -171,6 +173,54 @@ function get_filter_column($table_name, $table_title_column)
 
     return $tableFilterColumn;
 }
+
+function get_basket($user){
+    global $connect;
+
+    if(!$user){
+        return false;
+    }
+
+    $query = "SELECT 
+            products.product_id, 
+            products.name, 
+            products.description, 
+            products.price, 
+            products.image,
+            products.color_id as color,
+            products.material_id as material,
+            product_order.count
+        FROM product_order
+        RIGHT JOIN 
+            products 
+        ON 
+            product_order.product_id = products.product_id
+        WHERE 
+            product_order.user_id = $user
+        AND (product_order.order_id IS NULL OR product_order.order_id = '')";
+
+    $result = mysqli_query($connect, $query);
+
+    $products = ['sum_basket_product' => 0];
+    while ($row = mysqli_fetch_assoc($result)){
+        $color = get_filter_column('colors', 'color', $row['color']);
+        $material = get_filter_column('materials', 'material', $row['material']);
+
+        $row['color_name'] = $color[0]['color'];
+        $row['material_name'] = $material[0]['material'];
+        $products['sum_basket_product'] += $row['price'];
+
+        $products[] = $row;
+    }
+
+    return $products;
+}
+
+
+
+//function get_product_attribyte($table_name, $table_title_column){
+//
+//}
 
 function get_whishlict_user($user)
 {
@@ -200,6 +250,8 @@ function get_whishlict_user($user)
 
     $products = [];
     while ($row = mysqli_fetch_assoc($result)){
+        $row['color_name'] =
+        $row['material_name'] =
         $products[] = $row;
     }
 

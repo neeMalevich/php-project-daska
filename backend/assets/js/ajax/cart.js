@@ -55,6 +55,109 @@ $(document).ready(function () {
         }, 600);
     }
 
+
+    function updateTotalPrice() {
+        totalFullPrice = 0;
+
+        $('.quantity_inner').each(function () {
+            let $input = $(this).find('.quantity');
+            let quantity = parseInt($input.val());
+            let price = parseFloat($input.closest('.quantity_inner').data('start-pice'));
+            let totalPrice = quantity * price;
+            $input.closest('.card__right').find('.card__price').text('$ ' + totalPrice.toFixed(2));
+
+            totalFullPrice += totalPrice;
+        });
+
+        $('.card__full-price span').text(totalFullPrice.toFixed(2));
+    }
+
+    function minusButtonClick() {
+        let $input = $(this).parent().find('.quantity');
+        let count = parseInt($input.val()) - 1;
+        count = count < 1 ? 1 : count;
+        $input.val(count);
+
+        let $card = $(this).closest('.card');
+        let productId = $card.find('.quantity_inner').data('id');
+
+        selectedOptionsCard.cart_add = productId;
+        selectedOptionsCard.cart_count = count;
+
+        updateTotalPrice();
+        updateDataCart(selectedOptionsCard);
+    }
+
+    function plusButtonClick() {
+        let $input = $(this).parent().find('.quantity');
+        let count = parseInt($input.val()) + 1;
+        count = count > parseInt($input.data('max-count')) ? parseInt($input.data('max-count')) : count;
+        $input.val(count);
+
+        let $card = $(this).closest('.card');
+        let productId = $card.find('.quantity_inner').data('id');
+
+        selectedOptionsCard.cart_add = productId;
+        selectedOptionsCard.cart_count = count;
+
+        updateTotalPrice();
+        updateDataCart(selectedOptionsCard);
+    }
+
+    function quantityChange() {
+        if (this.value.match(/[^0-9]/g)) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        }
+        if (this.value == "") {
+            this.value = 1;
+        }
+        if (this.value > parseInt($(this).data('max-count'))) {
+            this.value = parseInt($(this).data('max-count'));
+        }
+
+        let $card = $(this).closest('.card');
+        let productId = $card.find('.quantity_inner').data('id');
+        let count = parseInt($(this).val());
+
+        selectedOptionsCard.cart_add = productId;
+        selectedOptionsCard.cart_count = count;
+
+        updateTotalPrice();
+        updateDataCart(selectedOptionsCard);
+    }
+
+    function removeButtonClick() {
+        let $card = $(this).closest('.card');
+        let price = parseFloat($card.find('.card__price').data('price'));
+        let quantity = parseInt($card.find('.quantity').val());
+        let totalPrice = price * quantity;
+        totalFullPrice -= totalPrice;
+        $card.remove();
+        $('.card__full-price span').text(totalFullPrice.toFixed(2));
+
+        let productId = $card.find('.quantity_inner').data('id');
+
+        selectedOptionsCard.cart_remove = productId;
+        selectedOptionsCard.cart_count = quantity;
+
+        updateDataCart(selectedOptionsCard);
+
+        let $cartItems = $('.card__inner .card');
+        console.log($cartItems);
+        if ($cartItems.length === 0) {
+            console.log('ds');
+            let $cartEmpty = $('<div class="sidebar__top tac">Нет товаров</div>');
+
+            $('.s-basket').append($cartEmpty).addClass('_is-active');
+        }
+    }
+
+    $('.quantity_inner .bt_minus').click(minusButtonClick);
+    $('.quantity_inner .bt_plus').click(plusButtonClick);
+    $('.quantity_inner .quantity').bind("change keyup input", quantityChange);
+    $('.card__btn').click(removeButtonClick);
+
+
     function updateDataCart(dataObject) {
         console.log(dataObject);
 
@@ -68,5 +171,8 @@ $(document).ready(function () {
             },
         });
     }
+
+    updateTotalPrice();
+
 
 });

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 02 2024 г., 04:06
+-- Время создания: Мар 03 2024 г., 14:31
 -- Версия сервера: 10.6.7-MariaDB
 -- Версия PHP: 7.4.29
 
@@ -138,11 +138,40 @@ INSERT INTO `materials` (`material_id`, `material`) VALUES
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `data` date NOT NULL,
-  `time` time(6) NOT NULL,
-  `tel` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `order_data` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order_time` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order_tel` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `comment` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `order_data`, `order_time`, `order_tel`, `comment`) VALUES
+(1, 15, '2024-03-05', '11:44:51.000000', NULL, NULL),
+(2, 14, '2024-03-12', '66:01:41.000000', 'fds', NULL),
+(3, 12, '2024-03-05', '12:37:00.000000', 'ftgvy', NULL),
+(4, 12, '2024-03-13', '16:55:11.000000', 'выффыфвы', '448'),
+(5, 13, '2024-03-12', '17:21:27.000000', '47', '777'),
+(6, 13, '2024-03-05', '18:22:00.000000', '7848448', '8*8*8'),
+(7, 15, '2024-03-16', '13:48', '', 'DSAAA'),
+(8, 15, '2024-03-16', '13:48', '', 'DSAAAdsasss'),
+(9, 15, '2024-03-16', '13:48', '', 'DSAAAdsasss'),
+(10, 15, '2024-03-16', '13:48', '', 'DSAAAdsasss'),
+(11, 15, '2024-03-16', '13:48', '', 'DSAAAdsasss'),
+(12, 15, '2024-03-16', '13:48', '', 'DSAAAdsasss'),
+(13, 15, '2024-03-06', '14:07', '', '777'),
+(14, 15, '2024-03-16', '13:48', '', 'DSAAAdsasss'),
+(15, 15, '2024-03-16', '13:48', '', 'DSAAAdsasss'),
+(16, 15, '2024-03-16', '13:48', '', 'DSAAAdsasss'),
+(17, 15, '2024-03-16', '13:48', '', 'DSAAAdsasss'),
+(18, 15, '2024-03-12', '14:22', '', '445'),
+(19, 15, '2024-03-12', '14:22', '', '445'),
+(20, 15, '2024-03-12', '14:22', '', '445'),
+(21, 15, '2024-03-04', '14:26', '', 'TEST'),
+(22, 15, '2024-03-08', '17:28', '', '7777'),
+(23, 15, '2024-03-09', '14:31', '', 'TEST0');
 
 -- --------------------------------------------------------
 
@@ -197,11 +226,11 @@ CREATE TABLE `product_order` (
 --
 
 INSERT INTO `product_order` (`id`, `product_id`, `user_id`, `order_id`, `count`) VALUES
-(28, 8, 15, NULL, 1),
-(29, 3, 15, NULL, 1),
-(30, 9, 15, NULL, 1),
-(31, 4, 15, NULL, 2),
-(32, 6, 15, NULL, 3);
+(43, 6, 15, 22, 1),
+(45, 9, 15, 23, 2),
+(66, 2, 15, 22, 3),
+(67, 9, 15, 23, 1),
+(68, 7, 15, 17, 1);
 
 -- --------------------------------------------------------
 
@@ -317,7 +346,7 @@ ALTER TABLE `colors`
 -- AUTO_INCREMENT для таблицы `favorites`
 --
 ALTER TABLE `favorites`
-  MODIFY `favorit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=329;
+  MODIFY `favorit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=330;
 
 --
 -- AUTO_INCREMENT для таблицы `makers`
@@ -335,7 +364,7 @@ ALTER TABLE `materials`
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT для таблицы `products`
@@ -347,7 +376,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT для таблицы `product_order`
 --
 ALTER TABLE `product_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
@@ -370,7 +399,7 @@ ALTER TABLE `favorites`
 -- Ограничения внешнего ключа таблицы `orders`
 --
 ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `product_order` (`user_id`);
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `products`
@@ -386,7 +415,7 @@ ALTER TABLE `products`
 --
 ALTER TABLE `product_order`
   ADD CONSTRAINT `product_order_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`),
-  ADD CONSTRAINT `product_order_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `product_order_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
   ADD CONSTRAINT `product_order_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 COMMIT;
 

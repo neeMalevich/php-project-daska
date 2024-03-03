@@ -1,11 +1,11 @@
 $(document).ready(function() {
     $('.catalog__inner.wishlist .product__item .whishlist').on('click', function() {
-        var $productItem = $(this).closest('.product__item-whishlist');
+        let $productItem = $(this).closest('.product__item-whishlist');
         $productItem.remove();
 
-        var $wishlistItems = $('.catalog__inner.wishlist .product__item-whishlist');
+        let $wishlistItems = $('.catalog__inner.wishlist .product__item-whishlist');
         if ($wishlistItems.length === 0) {
-            var $wishlistEmpty = $('' +
+            let $wishlistEmpty = $('' +
                 '<div class="wishlist">' +
                     '<div class="wishlist__img">' +
                         '<img src="/assets/images/wishlist-accaunt.svg" alt="">' +
