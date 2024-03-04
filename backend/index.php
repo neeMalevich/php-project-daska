@@ -20,38 +20,9 @@ require_once __DIR__ . '/vendor/components/header.php';
             Коллекции
         </h2>
         <div class="collection__inner catalog__inner">
-            <div class="product__item">
-                <a class="product__img">
-                    <img src="/assets/images/styl.png" alt="">
-                </a>
-                <a href="" class="product__title">
-                    Тумбы
-                </a>
-            </div>
-            <div class="product__item">
-                <a class="product__img">
-                    <img src="/assets/images/styl.png" alt="">
-                </a>
-                <a href="" class="product__title">
-                    Полки
-                </a>
-            </div>
-            <div class="product__item">
-                <a class="product__img">
-                    <img src="/assets/images/styl.png" alt="">
-                </a>
-                <a href="" class="product__title">
-                    Столы
-                </a>
-            </div>
-            <div class="product__item">
-                <a class="product__img">
-                    <img src="/assets/images/styl.png" alt="">
-                </a>
-                <a href="" class="product__title">
-                    Столы
-                </a>
-            </div>
+
+            <?php include __DIR__ . '/vendor/components/category.php'; ?>
+
         </div>
     </div>
 </section>

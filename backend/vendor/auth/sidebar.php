@@ -5,6 +5,9 @@
     <li class="accaunt-sidebar__list">
         <a href="/whishlist.php" class="accaunt-sidebar__link <?= $_SERVER['REQUEST_URI'] == '/whishlist.php' ? ' _is-active' : ''; ?>">Избранное</a>
     </li>
+    <li class="accaunt-sidebar__list">
+        <a href="/basket.php" class="accaunt-sidebar__link <?= $_SERVER['REQUEST_URI'] == '/basket.php' ? ' _is-active' : ''; ?>">Корзина</a>
+    </li>
     <form>
         <li class="accaunt-sidebar__list">
             <a href="/vendor/auth/logout.php" class="accaunt-sidebar__link">Выйти</a>

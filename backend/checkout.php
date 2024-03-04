@@ -16,27 +16,19 @@ if (!isset($_SESSION['user'])) {
             </h1>
 
 
-            <form action="/vendor/cart/checkout.php" method="POST" class="account">
-                <?php if (isset($_SESSION['error_message']) && !empty($_SESSION['error_message'])): ?>
-                    <div class="alert-danger _is-error account--error">
-                        Ошибка оформление заказа.
-                    </div>
-                <?php endif; ?>
-                <?php if (isset($_SESSION['users_update']) && !empty($_SESSION['users_update']) && empty($_SESSION['error_message'])) : ?>
-                    <div class="alert-danger _is-error account--success">
-                        Заказ оформлен
-                    </div>
-                <?php endif; ?>
+            <form id="checkout" class="account">
+                <div class="alert-danger account--success">
+                    Заказ оформлен
+                </div>
                 <div class="alert-danger"></div>
 
                 <label for="tel">Телефон</label>
-                <input type="tel" placeholder="Телефон" id="order_tel" name="tel" required>
-                <?php if (isset($_SESSION['error_message']['error_message']['tel'])) : ?>
-                    <div class="error-message"><?= $_SESSION['error_message']['error_message']['tel']; ?></div>
-                <?php endif; ?>
+                <input type="tel" data-phone-pattern = "+375 (__) ___-__-__" placeholder="Телефон" id="order_tel" name="order_tel" required>
+                <div class="error-message"></div>
 
                 <label for="data">Дата</label>
                 <input type="date" id="data" name="order_data" required>
+                <div class="error-message"></div>
 
                 <label for="time">Время</label>
                 <input type="time" id="time" name="order_time" required>
@@ -44,7 +36,7 @@ if (!isset($_SESSION['user'])) {
                 <label for="comment">Комментарий</label>
                 <textarea name="comment" placeholder="Комментарий" id="comment" rows="5"></textarea>
 
-                <button class="account__btn mt-55" type="submit">
+                <button id="form-checkout" class="account__btn mt-55" type="submit">
                     <span>
                         Подтвердить заказ
                     </span>
@@ -57,9 +49,6 @@ if (!isset($_SESSION['user'])) {
         </div>
     </section>
 
-<?php
-unset($_SESSION['error_message']);
-unset($_SESSION['users_update']);
+    <script src="/assets/js/ajax/checkout.js"></script>
 
-require_once __DIR__ . '/vendor/components/footer.php';
-?>
+<?php require_once __DIR__ . '/vendor/components/footer.php'; ?>

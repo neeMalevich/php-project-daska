@@ -42,22 +42,18 @@ function get_products_by_category($id){
     return $products;
 }
 
-function get_products_by_id($product_id){
+function get_categories(){
     global $connect;
 
-    if(!$product_id){
-        return false;
-    }
-
-    $query = "SELECT * FROM products WHERE product_id = $product_id";
+    $query = "SELECT id, name, image FROM categories";
     $result = mysqli_query($connect, $query);
 
-    $products = [];
+    $menu = [];
     while ($row = mysqli_fetch_assoc($result)){
-        $products[] = $row;
+        $menu[$row['id']] = $row;
     }
 
-    return $products;
+    return $menu;
 }
 
 function check_table_exists($table_name) {
@@ -123,7 +119,7 @@ function get_wishlist_icon_by_count($user){
         return '<a class="whishlist-btn" href="/login.php"><img src="/assets/images/whishlist.png" alt=""></a>';
     }
 
-    $whishlistCount = get_count_product($user['id'], 'wishlist_count', 'favorites');
+    $whishlistCount = get_count_product($user['id'], 'shlist_count', 'favorites');
     $activeClass = ($whishlistCount > 0) ? '_is-active' : "";
 
     return '<a class="whishlist-btn ' . $activeClass . '" href="/whishlist.php">
@@ -216,12 +212,6 @@ function get_basket($user){
     return $products;
 }
 
-
-
-//function get_product_attribyte($table_name, $table_title_column){
-//
-//}
-
 function get_whishlict_user($user)
 {
     global $connect;
@@ -250,9 +240,7 @@ function get_whishlict_user($user)
 
     $products = [];
     while ($row = mysqli_fetch_assoc($result)){
-        $row['color_name'] =
-        $row['material_name'] =
-        $products[] = $row;
+        $products[$row['product_id']] = $row;
     }
 
     return $products;

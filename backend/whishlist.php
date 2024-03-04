@@ -19,13 +19,12 @@ if (!$_SESSION['user']) {
 
                 <?php
                 $products = get_whishlict_user($_SESSION['user']['id']);
+
                 if ($products) : ?>
                     <div class="catalog__inner wishlist">
                         <?php
                         if (!empty($products)) :
-                            foreach ($products as $product) :
-                                $whishlists = $_SESSION['user']['whishlist'];
-                                ?>
+                            foreach ($products as $product) : ?>
 
                                 <?php include __DIR__ . '/vendor/category/product-item.php'; ?>
 
@@ -61,6 +60,14 @@ if (!$_SESSION['user']) {
         </div>
     </section>
 
+    <div class="modal-order">
+        <div class="modal-order-content">
+            <span class="close-button-order">×</span>
+            <div class="modal_product_title">Для добавления товара в избранное необходимо войти в аккаунт</div>
+            <a href="/login.php" class="btn-form" style="margin-top: 25px">Войти</a>
+        </div>
+    </div>
     <?php include __DIR__ . '/assets/js/ajax/whishlist.php'; ?>
+    <script src="/assets/js/ajax/cart.js"></script>
 
 <?php require_once __DIR__ . '/vendor/components/footer.php'; ?>

@@ -16,7 +16,7 @@ include __DIR__ . '/../function.php';
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <link rel="stylesheet" href="/assets/css/app.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
     <script src="/assets/js/jquery-3.4.1.min.js"></script>
 
 </head>
@@ -27,7 +27,7 @@ include __DIR__ . '/../function.php';
     <div class="container">
         <div class="header__inner">
             <a href="/" class="header__logo logo">
-                <img src="/assets/images/logo.png" alt="" class="logo-img">
+                <img src="/assets/images/logo.png" alt="Лого" class="logo-img">
             </a>
 
             <div class="header__right">

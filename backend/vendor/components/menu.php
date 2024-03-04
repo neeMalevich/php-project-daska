@@ -21,7 +21,6 @@ $menu = get_menu();
             </ul>
         </li>
 
-
         <li>
             <a href="#">контакты</a>
         </li>

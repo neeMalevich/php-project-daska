@@ -5,9 +5,6 @@ include __DIR__ . '/../function.php';
 
 global $connect;
 
-unset($_SESSION['error_message']);
-$error_messages = [];
-
 $order_tel = isset($_POST['order_tel']) ? $_POST['order_tel'] : null;
 $order_data = isset($_POST['order_data']) ? $_POST['order_data'] : null;
 $order_time = isset($_POST['order_time']) ? $_POST['order_time'] : null;
@@ -20,7 +17,6 @@ $result = mysqli_query($connect, $query);
 
 if ($result) {
     $order_id = mysqli_insert_id($connect);
-    $_SESSION['users_update'] = 'success';
 }
 
 $query_user = "SELECT order_id FROM product_order WHERE user_id = '$user_id' AND (order_id IS NULL OR order_id = '')";
@@ -33,6 +29,4 @@ if ($result_user) {
     }
 }
 
-$_SESSION['error_message'] = $error_messages;
-
-header('Location: /checkout.php');
+//header('Location: /checkout.php');

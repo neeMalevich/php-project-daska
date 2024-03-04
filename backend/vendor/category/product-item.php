@@ -1,7 +1,10 @@
 <?php
 session_start();
-$whishlists = $_SESSION['user']['whishlist'];
 
+$whishlists_active = '';
+if (array_key_exists($product['product_id'], get_whishlict_user($_SESSION['user']['id'])) == $product['product_id']) {
+    $whishlists_active = ' _is-active';
+}
 ?>
 
 <div class="product__item <?= $_SERVER['REQUEST_URI'] == '/whishlist.php' ? ' product__item-whishlist' : ''; ?>">
@@ -32,7 +35,7 @@ $whishlists = $_SESSION['user']['whishlist'];
         </button>
 
         <button
-            class="whishlist <?= (is_array($whishlists) && in_array($product['product_id'], $whishlists)) ? '_is-active' : ''; ?>"
+            class="whishlist <?= $whishlists_active; ?>"
             data-id="<?= $product['product_id']; ?>"
             data-user_id="<?= isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : ''; ?>"
         >

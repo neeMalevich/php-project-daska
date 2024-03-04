@@ -36,6 +36,7 @@ $(document).ready(function () {
                             $(`.alert-danger`).addClass('_is-error');
                             $(`input[name="password"]`).val('');
                         }
+
                     }
                 }
             }
