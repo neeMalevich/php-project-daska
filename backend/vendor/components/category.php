@@ -5,7 +5,7 @@ $categories = get_categories();
 <?php foreach ($categories as $category) : ?>
 
     <div class="product__item">
-        <a class="product__img">
+        <a href="/category.php?cat=<?= $category['id']; ?>" class="product__img">
             <?php if ($category['image']) : ?>
                 <img src="/assets/images/<?= $category['image']; ?>"
                      alt="<?= $category['name']; ?>">

@@ -3,18 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="fe0a09fd-702f-47c4-b230-deaa72b9f7a2" name="Changes" comment="работата с категориями">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/assets/css/app.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/assets/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/assets/js/ajax/filter.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/assets/js/ajax/filter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/assets/js/ajax/whishlist.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/assets/js/ajax/whishlist.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/assets/js/app.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/assets/js/app.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/assets/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/checkout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/auth/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/auth/sidebar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/cart/checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/cart/checkout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/category.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/auth/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/auth/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/auth/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/auth/register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/vendor/category/product-item.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/category/product-item.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/category/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/category/sidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/components/category.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/components/category.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/vendor/components/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/components/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/components/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/components/menu.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/vendor/function.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/function.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/whishlist.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/whishlist.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +89,8 @@
       <workItem from="1709052636933" duration="10927000" />
       <workItem from="1709326939913" duration="12067000" />
       <workItem from="1709396708363" duration="31196000" />
-      <workItem from="1709461172352" duration="18150000" />
+      <workItem from="1709461172352" duration="28124000" />
+      <workItem from="1709654991118" duration="6914000" />
     </task>
     <task id="LOCAL-00001" summary="работата с категориями">
       <created>1708823272423</created>

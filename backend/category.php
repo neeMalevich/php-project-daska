@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '/vendor/components/header.php';
-
 ?>
 
     <section class="s-collection">
@@ -19,9 +18,6 @@ require_once __DIR__ . '/vendor/components/header.php';
 
                     </div>
 
-                    <!--                    <div class="catalog__more">-->
-                    <!--                        <span>Смотреть еще</span>-->
-                    <!--                    </div>-->
                 </div>
             </div>
     </section>

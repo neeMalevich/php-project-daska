@@ -1,4 +1,4 @@
-    <div class="sidebar">
+<div class="sidebar">
     <div class="sidebar__top">
         <img src="/assets/images/filter.png" alt="">
         Фильтр
@@ -33,6 +33,8 @@
 
         foreach ($filters as $filter) :
             $tableFilterColumn = get_filter_column($filter['table'], $filter['column']);
+
+//        debug($tableFilterColumn);
             ?>
             <div class="accordion">
                 <div class="accordion-item active">
@@ -41,17 +43,15 @@
                         <img src="/assets/images/catalog-arrow.png" alt="">
                     </h2>
                     <div class="accordion-content" style="max-height: fit-content;">
-                        <?php foreach ($tableFilterColumn as $parametr) :
-
-                            $isChecked = isset($_GET[$parametr['filter_column']]) && $_GET[$parametr['filter_column']] ? 1 : 0;
-                            ?>
-                            <label for="<?= $parametr['filter_column']; ?>" class="option">
-                                <?= $parametr[$filter['column']]; ?>
-                                <input type="checkbox" id="<?= $parametr['filter_column']; ?>" name="<?= $parametr['filter_column']; ?>"
-                                       aria-checked="<?= $isChecked ? 'true' : 'false'; ?>" <?= $isChecked ? 'checked' : ''; ?>/>
-                                <span class="checkbox checkbox1"></span>
-                            </label>
-                        <?php endforeach; ?>
+                        <?php if ($tableFilterColumn) : ?>
+                            <?php foreach ($tableFilterColumn as $parametr) : ?>
+                                <label for="<?= $parametr['filter_column']; ?>" class="option">
+                                    <?= $parametr[$filter['column']]; ?>
+                                    <input type="checkbox" id="<?= $parametr['filter_column']; ?>" name="<?= $parametr['filter_column']; ?>"                                        />
+                                    <span class="checkbox checkbox1"></span>
+                                </label>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

@@ -39,6 +39,7 @@ include __DIR__ . '/../function.php';
                         <a href="/login.php">
                             <?php
                             $avatar = get_user_avatar($_SESSION['user']);
+
                             if (!empty($avatar) && $avatar !== null) : ?>
                                 <img class="header__users-img" src="<?= $avatar; ?>" alt="">
                             <?php else : ?>

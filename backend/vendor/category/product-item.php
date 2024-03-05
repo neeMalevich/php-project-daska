@@ -2,8 +2,10 @@
 session_start();
 
 $whishlists_active = '';
-if (array_key_exists($product['product_id'], get_whishlict_user($_SESSION['user']['id'])) == $product['product_id']) {
-    $whishlists_active = ' _is-active';
+if (isset($_SESSION['user'])){
+    if (array_key_exists($product['product_id'], get_whishlict_user($_SESSION['user']['id'])) == $product['product_id']) {
+        $whishlists_active = ' _is-active';
+    }
 }
 ?>
 

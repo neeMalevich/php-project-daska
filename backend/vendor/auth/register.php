@@ -10,6 +10,8 @@ $password_confirm = $_POST['password_confirm'];
 
 $check_email = mysqli_query($connect, "SELECT * FROM `users` WHERE `email` = '$email'");
 
+$error_messages = [];
+
 if (mysqli_num_rows($check_email) > 0) {
     $response = [
         "status" => false,
@@ -18,20 +20,6 @@ if (mysqli_num_rows($check_email) > 0) {
             'email' => "Такой E-mail уже существует"
         ],
         "fields" => ['email']
-    ];
-
-    echo json_encode($response);
-    die();
-}
-
-$error_messages = [];
-
-if (!empty($error_messages)) {
-    $response = [
-        "status" => false,
-        "type" => 1,
-        "message" => $error_messages,
-        "fields" => array_keys($error_messages)
     ];
 
     echo json_encode($response);

@@ -27,7 +27,6 @@ function get_products_by_category($id){
 
     if($id){
         $query = "SELECT * FROM products where category_id IN($id) ORDER BY name";
-
     } else{
         $query = "SELECT * FROM products ORDER BY name";
     }
@@ -119,7 +118,7 @@ function get_wishlist_icon_by_count($user){
         return '<a class="whishlist-btn" href="/login.php"><img src="/assets/images/whishlist.png" alt=""></a>';
     }
 
-    $whishlistCount = get_count_product($user['id'], 'shlist_count', 'favorites');
+    $whishlistCount = get_count_product($user['id'], 'whishlist_count', 'favorites');
     $activeClass = ($whishlistCount > 0) ? '_is-active' : "";
 
     return '<a class="whishlist-btn ' . $activeClass . '" href="/whishlist.php">

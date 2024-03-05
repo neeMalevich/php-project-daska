@@ -1,7 +1,7 @@
 <script>
     $(document).ready(function () {
 
-        var selectedOptions = {
+        let selectedOptions = {
             "material": [],
             "color": [],
             "maker": [],

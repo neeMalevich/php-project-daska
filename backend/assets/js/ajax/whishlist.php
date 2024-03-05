@@ -1,7 +1,7 @@
 <script>
 
     $(document).ready(function () {
-        var selectedOptions = {
+        let selectedOptions = {
             'whishlist_add': '',
             'whishlist_remove': '',
             'whishlist': <?= isset($_SESSION['user']['whishlist']) ? json_encode(array_values(array_map('intval', $_SESSION['user']['whishlist']))) : '[]' ?>,
@@ -28,7 +28,7 @@
 
                     updateData(selectedOptions);
 
-                    $('.whishlist-count').text(whishlistCount - 1); // Decrement whishlist-count
+                    $('.whishlist-count').text(whishlistCount - 1); // отнимаем -1 в шапке для лайков
                     if (whishlistCount - 1 === 0) {
                         $('.whishlist-btn').removeClass('_is-active');
                     }
