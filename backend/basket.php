@@ -11,6 +11,7 @@ if (!isset($_SESSION['user'])) {
 require_once __DIR__ . '/vendor/components/header.php';
 
 $baskets = get_basket($_SESSION['user']['id']);
+//debug($baskets);
 $basket_sum = array_shift($baskets);
 ?>
 

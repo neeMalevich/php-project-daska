@@ -182,8 +182,8 @@ function get_basket($user){
             products.description, 
             products.price, 
             products.image,
-            products.color_id as color,
-            products.material_id as material,
+            products.color_id,
+            products.material_id,
             product_order.count
         FROM product_order
         RIGHT JOIN 
@@ -198,12 +198,13 @@ function get_basket($user){
 
     $products = ['sum_basket_product' => 0];
     while ($row = mysqli_fetch_assoc($result)){
-        $color = get_filter_column('colors', 'color', $row['color']);
-        $material = get_filter_column('materials', 'material', $row['material']);
+        $color = get_filter_column('colors', 'color', $row['color_id']);
+        $material = get_filter_column('materials', 'material', $row['material_id']);
 
+//      debug($color);
         $row['color_name'] = $color[0]['color'];
         $row['material_name'] = $material[0]['material'];
-        $products['sum_basket_product'] += $row['price'];
+        $products['sum_basket_product'] += $row['price'] * $row['count'];
 
         $products[] = $row;
     }

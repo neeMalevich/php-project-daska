@@ -1078,7 +1078,7 @@ select::-ms-expand {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
-  padding: 1rem 1.5rem;
+  padding: 6rem 1.5rem;
   width: 60%;
   border-radius: 0.5rem;
 }
@@ -1091,8 +1091,11 @@ select::-ms-expand {
   font-size: 3rem;
   text-align: center;
   cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 10px;
   border-radius: 0.25rem;
-  background-color: lightgray;
+  background-color: transparent;
 }
 
 
@@ -1102,6 +1105,13 @@ select::-ms-expand {
   transform: scale(1.0);
   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
+.modal-order-content .btn-form{
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  max-width: 82px;
+  text-decoration: none;
+}
 
 .modal_product_title {
   color: #000;
@@ -1110,6 +1120,7 @@ select::-ms-expand {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .alert-danger._is-error {

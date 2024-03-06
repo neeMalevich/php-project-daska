@@ -5,10 +5,11 @@ include __DIR__ . '/../function.php';
 
 global $connect;
 
-$order_tel = isset($_POST['order_tel']) ? $_POST['order_tel'] : null;
-$order_data = isset($_POST['order_data']) ? $_POST['order_data'] : null;
-$order_time = isset($_POST['order_time']) ? $_POST['order_time'] : null;
+$order_tel = $_POST['order_tel'];
+$order_data = $_POST['order_data'];
+$order_time = $_POST['order_time'];
 $comment = isset($_POST['comment']) ? $_POST['comment'] : null;
+
 $user_id = $_SESSION['user']['id'];
 
 

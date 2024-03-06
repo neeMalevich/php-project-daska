@@ -20,7 +20,7 @@ $(document).ready(function () {
 
             updateDataCart(selectedOptionsCard);
 
-            $('.basket-count').text(basketCount + 1); // Decrement whishlist-count
+            $('.basket-count').text(basketCount + 1); // +1
             $('.basket-btn').addClass('_is-active');
         } else {
             $(".modal-order").addClass("show-modal-order");
@@ -28,7 +28,7 @@ $(document).ready(function () {
     });
 
     function alertAddCart() {
-        var errorAlert = $(`
+        let errorAlert = $(`
             <div class="error-alert" id="errorAlert">
                 <div class="error-alert__icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none">
@@ -57,7 +57,7 @@ $(document).ready(function () {
 
 
     function updateTotalPrice() {
-        totalFullPrice = 0;
+        let totalFullPrice = 0;
 
         $('.quantity_inner').each(function () {
             let $input = $(this).find('.quantity');
