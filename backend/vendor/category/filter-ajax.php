@@ -12,8 +12,7 @@ $priceMax = $_POST['price_max'];
 $priceMin = $_POST['price_min'];
 
 $category = $_POST['category'];
-
-//debug($category);
+$sort = $_POST['sort'];
 
 $query = "SELECT * FROM products";
 $conditions = [];
@@ -40,6 +39,23 @@ if ($priceMax && $priceMin) {
 
 if (!empty($conditions)) {
     $query .= " WHERE " . implode(" AND ", $conditions);
+}
+
+if (isset($sort) && !empty($sort)) {
+    switch ($sort) {
+        case 'price-low':
+            $query .= " ORDER BY price ASC";
+            break;
+        case 'price-high':
+            $query .= " ORDER BY price DESC";
+            break;
+        case 'sort-az':
+            $query .= " ORDER BY name ASC";
+            break;
+        case 'sort-za':
+            $query .= " ORDER BY name DESC";
+            break;
+    }
 }
 
 $result = mysqli_query($connect, $query);

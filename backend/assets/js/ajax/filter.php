@@ -1,14 +1,20 @@
 <script>
     $(document).ready(function () {
 
+        const customSelect = document.querySelector('.custom-select');
+        const selectedValue = document.querySelector('.selected-value');
+        const selectDropdown = document.getElementById('select-dropdown');
+
         let selectedOptions = {
             "material": [],
             "color": [],
             "maker": [],
             'price_min': '0',
             'price_max': '9999999',
-            'category': "<?= $_GET['cat']; ?>"
+            'category': "<?= $_GET['cat']; ?>",
+            "sort": ''
         };
+
 
         $(".accordion-price_input").on("change", function () {
             let priceMin = $("input[name='price_min']").val();
@@ -61,7 +67,8 @@
                 "maker": [],
                 'price_min': '',
                 'price_max': '',
-                'category': "<?= $_GET['cat']; ?>"
+                'category': "<?= $_GET['cat']; ?>",
+                "sort": ''
             };
 
             // Очистка значений в элементах <input>
@@ -73,6 +80,25 @@
 
             updateData(selectedOptions);
         });
+
+        function handleOptionClick(e) {
+            if (e.target.tagName === 'LABEL') {
+                const textContent = e.target.textContent.trim();
+                selectedValue.textContent = textContent;
+                customSelect.classList.remove('active');
+
+                const name = e.target.previousElementSibling.getAttribute('name');
+                selectedOptions['sort'] = name;
+
+                updateData(selectedOptions);
+            }
+        }
+
+        customSelect.addEventListener('click', function() {
+            customSelect.classList.toggle('active');
+        });
+
+        selectDropdown.addEventListener('click', handleOptionClick);
 
         function updateData(dataObject) {
             console.log(dataObject);
@@ -87,6 +113,7 @@
                     price_max: dataObject.price_max,
                     price_min: dataObject.price_min,
                     category: dataObject.category,
+                    sort: dataObject.sort
                 },
                 success: function (response) {
                     $('.catalog__inner').html(response);

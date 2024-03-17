@@ -110,7 +110,11 @@ function get_user_avatar($user){
 
     $avatar = mysqli_fetch_assoc($result);
 
-    return $avatar['avatar'];
+    if (strpos($avatar['avatar'], "/uploads/") !== false) {
+        $avatar['avatar'] = null;
+    }
+
+    return $avatar['avatar'] ?? $user['avatar'];
 }
 
 function get_wishlist_icon_by_count($user){

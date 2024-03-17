@@ -12,6 +12,9 @@ require_once __DIR__ . '/vendor/components/header.php';
                 <?php include __DIR__ . '/vendor/category/sidebar.php'; ?>
 
                 <div class="catalog__wrapper">
+
+                    <?php include __DIR__ . '/vendor/category/sorting.php'; ?>
+
                     <div class="catalog__inner">
 
                         <?php include __DIR__ . '/vendor/category/products.php'; ?>
