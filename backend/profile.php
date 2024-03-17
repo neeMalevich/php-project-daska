@@ -66,7 +66,11 @@ if (!$_SESSION['user']) {
 
                         <label for="password">Действующий пароль</label>
                         <input type="password" placeholder="Действующий пароль" id="password" name="password">
-                        <div class="error-message"></div>
+                        <?php if (isset($_SESSION['error_message']['error_message']['password']) && !empty($_SESSION['error_message']['error_message']['password'])) : ?>
+                            <div class="error-message"><?= $_SESSION['error_message']['error_message']['password']; ?></div>
+                        <?php else: ?>
+                            <div class="error-message"></div>
+                        <?php endif; ?>
 
                         <label for="password_new">Новый пароль</label>
                         <input type="password" placeholder="Новый пароль" id="password_new" name="password_new">

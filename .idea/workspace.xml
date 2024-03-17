@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe0a09fd-702f-47c4-b230-deaa72b9f7a2" name="Changes" comment="работата с категориями">
-      <change afterPath="$PROJECT_DIR$/backend/assets/js/ajax/profile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/vendor/category/sorting.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/assets/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/assets/js/ajax/filter.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/assets/js/ajax/filter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/category.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/category.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/auth/account.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/auth/account.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/category/filter-ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/category/filter-ajax.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/function.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/function.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +85,7 @@
       <workItem from="1709764091962" duration="690000" />
       <workItem from="1709768574892" duration="9000" />
       <workItem from="1710003277092" duration="6238000" />
-      <workItem from="1710617092215" duration="23007000" />
+      <workItem from="1710617092215" duration="23274000" />
     </task>
     <task id="LOCAL-00001" summary="работата с категориями">
       <created>1708823272423</created>
