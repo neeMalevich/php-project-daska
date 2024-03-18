@@ -9,7 +9,11 @@ global $connect;
 $cart_add = $_POST['cart_add'];
 $cart_remove = $_POST['cart_remove'];
 $cart_count = $_POST['cart_count'];
+$cart_count_header = $_POST['cart_count_header'];
+
 $user_id = $_SESSION['user']['id'];
+
+$_SESSION['user']['cart_count_header'] = $cart_count_header;
 
 if (isset($cart_add) && !empty($cart_add)) {
     $check_query = "SELECT count FROM product_order WHERE product_id = '$cart_add' AND (order_id IS NULL OR order_id = '')";

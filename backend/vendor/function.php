@@ -78,7 +78,7 @@ function get_count_product($user, $count_name, $table, $total = false)
     }
 
     if ($total) {
-        $query = "SELECT SUM(count) AS $count_name FROM $table WHERE user_id = $user AND (order_id IS NULL OR order_id = '')";
+        $query = "SELECT COUNT(user_id) AS $count_name FROM $table WHERE user_id = $user AND (order_id IS NULL OR order_id = '')";
     } else {
         $query = "SELECT COUNT(user_id) AS $count_name FROM $table WHERE user_id = $user";
     }

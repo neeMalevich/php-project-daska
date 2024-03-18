@@ -1,9 +1,11 @@
+<script>
 $(document).ready(function () {
 
     let selectedOptionsCard = {
         'cart_add': '',
         'cart_remove': '',
         'cart_count': '',
+        'cart_count_header': <?= isset($_SESSION['user']['cart_count_header']) ? json_encode(array_values(array_map('intval', $_SESSION['user']['cart_count_header']))) : '[]' ?>,
     };
 
     $(document).on('click', '.product__item .card', function () {
@@ -18,9 +20,13 @@ $(document).ready(function () {
                 alertAddCart();
             }
 
+            if (!selectedOptionsCard['cart_count_header'].includes(product_id)) {
+                $('.basket-count').text(basketCount + 1);
+                selectedOptionsCard['cart_count_header'].push(product_id);
+            }
+
             updateDataCart(selectedOptionsCard);
 
-            $('.basket-count').text(basketCount + 1); // +1
             $('.basket-btn').addClass('_is-active');
         } else {
             $(".modal-order").addClass("show-modal-order");
@@ -127,6 +133,7 @@ $(document).ready(function () {
     }
 
     function removeButtonClick() {
+        let totalFullPrice = 0;
         let $card = $(this).closest('.card');
         let price = parseFloat($card.find('.card__price').data('price'));
         let quantity = parseInt($card.find('.quantity').val());
@@ -168,6 +175,7 @@ $(document).ready(function () {
                 cart_add: dataObject.cart_add,
                 cart_remove: dataObject.cart_remove,
                 cart_count: dataObject.cart_count,
+                cart_count_header: dataObject.cart_count_header,
             },
         });
     }
@@ -176,3 +184,4 @@ $(document).ready(function () {
 
 
 });
+</script>

@@ -61,6 +61,6 @@ if (!$_SESSION['user']) {
     </section>
 
     <?php include __DIR__ . '/assets/js/ajax/whishlist.php'; ?>
-    <script src="/assets/js/ajax/cart.js"></script>
+    <?php include __DIR__ . '/assets/js/ajax/cart.php'; ?>
 
 <?php require_once __DIR__ . '/vendor/components/footer.php'; ?>
