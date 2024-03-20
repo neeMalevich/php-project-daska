@@ -43,6 +43,7 @@ $(document).ready(function() {
             formData.append('username', username);
             formData.append('email', email);
             formData.append('password', password);
+            formData.append('password_new', password);
             formData.append('password_confirm', password_confirm);
 
             $.ajax({

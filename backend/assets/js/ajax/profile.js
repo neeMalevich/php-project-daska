@@ -1,26 +1,105 @@
 $(document).ready(function () {
 
-    $('#account #username').on('input', function() {
+    $('#account #username').on('input', function () {
         validateUsername();
     });
 
-    $('#account #email').on('input', function() {
+    $('#account #email').on('input', function () {
         validateEmailField();
     });
 
-    $('#account #password').on('input', function() {
+    $('#account #password').on('input', function () {
         validatePasswordField();
     });
-    $('#account #password_new').on('input', function() {
+    $('#account #password_new').on('input', function () {
         validatePasswordField();
     });
-    $('#account #password_confirm').on('input', function() {
+    $('#account #password_confirm').on('input', function () {
         validatePasswordField();
+    });
+
+    $('#account').submit(function (e) {
+        e.preventDefault();
+
+        $('.error-message').empty();
+        $('input').removeClass('_is-error');
+
+        let hasError = false;
+
+        validateUsername();
+        validateEmailField();
+        validatePasswordField();
+
+        if (!hasError) {
+            let username = $('input[name="username"]').val();
+            let email = $('input[name="email"]').val();
+            let password = $('input[name="password"]').val();
+            let password_new = $('input[name="password_new"]').val();
+            let password_confirm = $('input[name="password_confirm"]').val();
+            let avatar = $('input[name="avatar"]')[0].files[0];
+
+            let formData = new FormData();
+
+            formData.append('username', username);
+            formData.append('email', email);
+            formData.append('password', password);
+            formData.append('password_new', password_new);
+            formData.append('password_confirm', password_confirm);
+            formData.append('avatar', avatar);
+
+
+            $('.error-message').empty();
+            $('input').removeClass('_is-error');
+
+            $.ajax({
+                url: 'vendor/auth/account.php',
+                type: 'POST',
+                dataType: 'json',
+                processData: false,
+                contentType: false,
+                cache: false,
+                data: formData,
+
+                success: function(response) {
+                    $('.error-message').empty();
+                    $('input').removeClass('_is-error');
+
+                    if (response.success) {
+                        $('.alert-danger--wrapper').empty();
+                        $('.alert-danger--wrapper').append('<div class="alert-danger _is-error account--success">' + response.message + '</div>');
+
+                        if (response.avatar) {
+                            $('.header__users-img').attr('src', response.avatar);
+                        }
+
+                        $('input[name="password"]').val('');
+                        $('input[name="password_new"]').val('');
+                        $('input[name="password_confirm"]').val('');
+
+                    } else {
+
+                        $('.alert-danger--wrapper').empty();
+
+                        for (var key in response.errors) {
+                            $('.alert-danger--wrapper').append('<div class="alert-danger _is-error account--error">' + response.errors[key] + '</div>');
+
+                            $(`input[name="${key}"]`).addClass('_is-error');
+                            $(`input[name="${key}"]`).next('.error-message').text(response.errors[key]);
+                        }
+
+                    }
+                },
+                error: function(xhr, status, error) {
+                    $('.alert-danger--wrapper').empty();
+                    $('.alert-danger--wrapper').append('<div class="alert-danger _is-error account--error">Ошибка обновления информации о пользователи.</div>');
+                }
+
+            });
+        }
     });
 
     function validateUsername() {
         let username = $('#account #username').val();
-        console.log(username.length);
         if (username.length < 4) {
             $('#account #username').addClass('_is-error');
             $('#account #username').next('.error-message').text('Имя пользователя должно быть не менее 4 символов');
@@ -28,9 +107,10 @@ $(document).ready(function () {
         } else {
             $('#account #username').removeClass('_is-error');
             $('#account #username').next('.error-message').empty();
+            hasError = false;
         }
 
-        setSubmitButtonState(hasError);
+        return hasError;
     }
 
     function validateEmailField() {
@@ -42,11 +122,11 @@ $(document).ready(function () {
         } else {
             $('#account #email').removeClass('_is-error');
             $('#account #email').next('.error-message').empty();
+            hasError = false;
         }
 
-        setSubmitButtonState(hasError);
+        return hasError;
     }
-
 
     function validatePasswordField() {
         let currentPassword = $('#account #password').val();
@@ -62,6 +142,15 @@ $(document).ready(function () {
         else {
             $('#account #password').removeClass('_is-error');
             $('#account #password').next('.error-message').empty();
+
+            if (currentPassword.length < 8) {
+                $('#account #password').addClass('_is-error');
+                $('#account #password').next('.error-message').text('Пароль должен содержать минимум 8 символов');
+                hasError = true;
+            } else {
+                $('#account #password').removeClass('_is-error');
+                $('#account #password').next('.error-message').empty();
+            }
 
             if (newPassword.length < 8) {
                 $('#account #password_new').addClass('_is-error');
@@ -91,17 +180,18 @@ $(document).ready(function () {
             }
 
         }
-
-        setSubmitButtonState(hasError);
     }
 
     function setSubmitButtonState(hasError) {
         let submitButton = $('#account .account__btn');
 
+        console.log(submitButton);
+        console.log(hasError);
+
         if (hasError) {
-            submitButton.prop('disabled', true); // Запрещаем нажатие кнопки
+            submitButton.attr('disabled', 'disabled'); // Запрещаем нажатие кнопки
         } else {
-            submitButton.prop('disabled', false); // Разрешаем нажатие кнопки
+            submitButton.removeAttr('disabled'); // Удаляем атрибут disabled
         }
     }
 

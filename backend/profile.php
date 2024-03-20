@@ -24,18 +24,8 @@ if (!$_SESSION['user']) {
                     </div>
 
                     <div class="alert-danger--wrapper"></div>
-                    <?php if (isset($_SESSION['error_message']) && !empty($_SESSION['error_message'])): ?>
-                        <div class="alert-danger _is-error account--error">
-                            Ошибка обновления информации о пользователи.
-                        </div>
-                    <?php endif; ?>
-                    <?php if (isset($_SESSION['users_update']) && !empty($_SESSION['users_update']) && empty($_SESSION['error_message'])) : ?>
-                        <div class="alert-danger _is-error account--success">
-                            Информация обновлена успешно.
-                        </div>
-                    <?php endif; ?>
 
-                    <form id="account" class="account" action="/vendor/auth/account.php" method="POST" enctype="multipart/form-data">
+                    <form id="account" class="account" enctype="multipart/form-data">
 
                         <label for="username">Имя</label>
                         <input type="text" placeholder="Имя" value="<?= $_SESSION['user']['username']; ?>" id="username"
@@ -61,16 +51,12 @@ if (!$_SESSION['user']) {
 
                         <label for="email">E-mail</label>
                         <input type="email" placeholder="E-mail" value="<?= $_SESSION['user']['email']; ?>" id="email"
-                               name="email" data-initial-value="<?= $_SESSION['user']['email']; ?>">
+                               name="email">
                         <div class="error-message"></div>
 
                         <label for="password">Действующий пароль</label>
                         <input type="password" placeholder="Действующий пароль" id="password" name="password">
-                        <?php if (isset($_SESSION['error_message']['error_message']['password']) && !empty($_SESSION['error_message']['error_message']['password'])) : ?>
-                            <div class="error-message"><?= $_SESSION['error_message']['error_message']['password']; ?></div>
-                        <?php else: ?>
-                            <div class="error-message"></div>
-                        <?php endif; ?>
+                        <div class="error-message"></div>
 
                         <label for="password_new">Новый пароль</label>
                         <input type="password" placeholder="Новый пароль" id="password_new" name="password_new">
