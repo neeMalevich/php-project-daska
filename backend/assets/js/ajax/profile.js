@@ -1,14 +1,25 @@
 $(document).ready(function () {
+    let isFormModified = false;
 
     $('#account #username').on('input', function () {
+        isFormModified = true;
+
         validateUsername();
     });
 
+    $('#account input[type="file"]').on('change', function() {
+        isFormModified = true;
+    });
+
     $('#account #email').on('input', function () {
+        isFormModified = true;
+
         validateEmailField();
     });
 
     $('#account #password').on('input', function () {
+        isFormModified = true;
+
         validatePasswordField();
     });
     $('#account #password_new').on('input', function () {
@@ -20,6 +31,10 @@ $(document).ready(function () {
 
     $('#account').submit(function (e) {
         e.preventDefault();
+
+        if (!isFormModified) {
+            return false;
+        }
 
         $('.error-message').empty();
         $('input').removeClass('_is-error');

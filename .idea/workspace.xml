@@ -4,7 +4,6 @@
     <list default="true" id="fe0a09fd-702f-47c4-b230-deaa72b9f7a2" name="Changes" comment="работата с категориями">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/assets/js/ajax/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/assets/js/ajax/profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/assets/js/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/assets/js/register.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/profile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/vendor/auth/account.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/auth/account.php" afterDir="false" />
     </list>
@@ -93,7 +92,7 @@
       <workItem from="1710766188955" duration="4818000" />
       <workItem from="1710796399063" duration="2564000" />
       <workItem from="1710886389578" duration="6118000" />
-      <workItem from="1710951168463" duration="3547000" />
+      <workItem from="1710951168463" duration="7292000" />
     </task>
     <task id="LOCAL-00001" summary="работата с категориями">
       <created>1708823272423</created>

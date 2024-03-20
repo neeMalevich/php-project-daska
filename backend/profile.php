@@ -92,7 +92,6 @@ if (!$_SESSION['user']) {
     <?php
     unset($_SESSION['user']['register']);
     unset($_SESSION['error_message']);
-    unset($_SESSION['users_update']);
     ?>
 
     <script src="/assets/js/ajax/profile.js"></script>

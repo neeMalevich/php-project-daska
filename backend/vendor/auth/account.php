@@ -41,7 +41,6 @@ if (!empty($password)) {
             mysqli_query($connect, $update_query);
 
             $_SESSION['user']['password'] = $password;
-            $_SESSION['users_update'] = 'success';
         } else {
             $response['success'] = false;
             $response['errors']['password_new'] = 'Пароли не совпадают';
@@ -56,7 +55,19 @@ if (!empty($password)) {
 }
 
 if (!empty($username)) {
-    $_SESSION['user']['username'] = $username;
+    if (strlen($username) > 4){
+        $_SESSION['user']['username'] = $username;
+
+        $update_query = "UPDATE users SET username='$username' WHERE id=$user_id";
+        mysqli_query($connect, $update_query);
+
+    } else{
+        $response['success'] = false;
+        $response['errors']['username'] = 'Имя должно содержать более 4 символов';
+    }
+} else {
+    $response['success'] = false;
+    $response['errors']['username'] = 'Имя является обязательным полем';
 }
 
 if (!empty($avatar) && isset($avatar) && !empty($avatar['name'])) {
@@ -78,9 +89,8 @@ if (!empty($avatar) && isset($avatar) && !empty($avatar['name'])) {
 
 if (!empty($email)) {
     $_SESSION['user']['email'] = $email;
-    $_SESSION['users_update'] = 'success';
 
-    $update_query = "UPDATE users SET username='$username', email='$email' WHERE id=$user_id";
+    $update_query = "UPDATE users SET email='$email' WHERE id=$user_id";
     mysqli_query($connect, $update_query);
 }
 
