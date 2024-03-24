@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe0a09fd-702f-47c4-b230-deaa72b9f7a2" name="Changes" comment="работата с категориями">
+      <change afterPath="$PROJECT_DIR$/backend/assets/images/search.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/assets/js/ajax/search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/vendor/cart/search-ajax.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/backend/assets/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/assets/js/ajax/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/assets/js/ajax/profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/vendor/auth/account.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/auth/account.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/components/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/components/header.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +95,9 @@
       <workItem from="1710766188955" duration="4818000" />
       <workItem from="1710796399063" duration="2564000" />
       <workItem from="1710886389578" duration="6118000" />
-      <workItem from="1710951168463" duration="7292000" />
+      <workItem from="1710951168463" duration="8156000" />
+      <workItem from="1710970480994" duration="2579000" />
+      <workItem from="1711311597569" duration="7097000" />
     </task>
     <task id="LOCAL-00001" summary="работата с категориями">
       <created>1708823272423</created>

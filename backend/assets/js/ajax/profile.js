@@ -53,6 +53,10 @@ $(document).ready(function () {
             let password_confirm = $('input[name="password_confirm"]').val();
             let avatar = $('input[name="avatar"]')[0].files[0];
 
+            console.log(avatar);
+            console.log('avataravatar');
+            console.log($('input[name="avatar"]'));
+
             let formData = new FormData();
 
             formData.append('username', username);
@@ -83,6 +87,7 @@ $(document).ready(function () {
                         $('.alert-danger--wrapper').empty();
                         $('.alert-danger--wrapper').append('<div class="alert-danger _is-error account--success">' + response.message + '</div>');
 
+                        // в шапке просто заменяемм путь к фотке
                         if (response.avatar) {
                             $('.header__users-img').attr('src', response.avatar);
                         }

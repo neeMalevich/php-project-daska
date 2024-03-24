@@ -19,6 +19,9 @@ include __DIR__ . '/../function.php';
     <link rel="stylesheet" href="/assets/css/main.css">
     <script src="/assets/js/jquery-3.4.1.min.js"></script>
 
+    <script src="/assets/js/ajax/search.js"></script>
+
+
 </head>
 
 <body>
@@ -29,6 +32,18 @@ include __DIR__ . '/../function.php';
             <a href="/" class="header__logo logo">
                 <img src="/assets/images/logo.png" alt="Лого" class="logo-img">
             </a>
+
+            <div class="search-boxq__inner">
+                <form class="search-boxq">
+                    <input class="search-inputq" type="search" placeholder="Поиск...">
+                    <button type="search" class="search-btnq">
+                        <img src="/assets/images/search.svg" alt="Поиск" class="search-img">
+                    </button>
+                </form>
+                <div class="search-boxq__result">
+
+                </div>
+            </div>
 
             <div class="header__right">
 

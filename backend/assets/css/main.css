@@ -1582,3 +1582,107 @@ select::-ms-expand {
   visibility: visible;
   transform: scaleY(1);
 }
+
+.search-boxq {
+  max-width: 350px;
+  margin-left: auto;
+  margin-top: 10px;
+  display: flex;
+}
+
+
+.search-inputq {
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  padding: 15px 45px 15px 15px;
+  background-color: transparent;
+  border: 3px solid #000;
+  color: #fff;
+  border-radius: 6px;
+  transition: all .4s;
+}
+
+.search-inputq:focus {
+  border: 3px solid #000;
+  outline:none;
+  box-shadow: 0 1px 12px #b8c6db;
+  -moz-box-shadow: 0 1px 12px #b8c6db;
+  -webkit-box-shadow: 0 1px 12px #b8c6db;
+}
+.search-inputq::placeholder{
+  color: #fff;
+}
+.search-btnq {
+  background-color: transparent;
+  font-size: 18px;
+  /* padding: 6px 9px; */
+  margin-left: -45px;
+  border: none;
+  color: #fff;
+  transition: all .4s;
+  z-index: 10;
+}
+
+.search-btnq svg {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.search-btnq:hover {
+  cursor: pointer;
+}
+
+.search-btnq:focus {
+  outline:none;
+  color:black;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+.search-boxq__inner {
+  position: relative;
+}
+.search-boxq__result {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+}
+.search-boxq__item {
+  box-shadow: 0 10px 25px rgb(0 0 0 / 20%);
+  background-color: #fff;
+  border: 1px solid #caced1;
+  border-radius: 4px;
+  padding: 5px;
+  margin-top: 1px;
+  z-index: 100;
+  position: relative;
+  overflow-y: auto;
+  transition: 0.5s ease;
+  display: flex;
+  align-items: center;
+}
+.search-boxq__item-img {
+  width: 110px;
+  height: auto;
+}
+.search-boxq__item-img img{
+  max-width: 100%;
+  width: 100%;
+}
+.search-boxq__item-title{
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+.search-boxq__item-content .price-new{
+  display: inline;;
+}
+.search-boxq__item-none{
+  margin: 5px auto;
+}
