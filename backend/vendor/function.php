@@ -54,6 +54,20 @@ function get_categories(){
 
     return $menu;
 }
+function get_category_by_id($categoryId) {
+    global $connect;
+
+    if (!$categoryId) {
+        return false;
+    }
+
+    $query = "SELECT name FROM categories WHERE id = $categoryId";
+    $result = mysqli_query($connect, $query);
+
+    $row = mysqli_fetch_assoc($result);
+
+    return $row ? $row['name'] : '';
+}
 
 function check_table_exists($table_name) {
     global $connect;

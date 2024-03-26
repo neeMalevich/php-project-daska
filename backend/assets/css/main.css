@@ -1491,6 +1491,7 @@ select::-ms-expand {
   align-items: center;
 }
 
+.selected-value-search,
 .selected-value {
   text-align: left;
 }
@@ -1502,6 +1503,7 @@ select::-ms-expand {
   transition: transform ease-in-out 0.3s;
 }
 
+.select-dropdown-search,
 .select-dropdown {
   position: absolute;
   list-style: none;
@@ -1522,10 +1524,12 @@ select::-ms-expand {
   visibility: hidden;
 }
 
+.select-dropdown-search:focus-within,
 .select-dropdown:focus-within {
   box-shadow: 0 10px 25px rgba(94, 108, 233, 0.6);
 }
 
+.select-dropdown-search li,
 .select-dropdown li {
   position: relative;
   cursor: pointer;
@@ -1534,6 +1538,7 @@ select::-ms-expand {
   align-items: center;
 }
 
+.select-dropdown-search li label,
 .select-dropdown li label {
   width: 100%;
   padding: 8px 10px;
@@ -1543,14 +1548,17 @@ select::-ms-expand {
   align-items: center;
 }
 
+.select-dropdown-search::-webkit-scrollbar,
 .select-dropdown::-webkit-scrollbar {
   width: 7px;
 }
+.select-dropdown-search::-webkit-scrollbar-track,
 .select-dropdown::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 25px;
 }
 
+.select-dropdown-search::-webkit-scrollbar-thumb,
 .select-dropdown::-webkit-scrollbar-thumb {
   background: #ccc;
   border-radius: 25px;
@@ -1685,4 +1693,45 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 .search-boxq__item-none{
   margin: 5px auto;
+}
+
+.select-button-search {
+  width: 150px;
+  font-size: 1.15rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.search-boxq .select-button{
+  height: 100%;
+}
+
+.custom-select-search.active .select-dropdown-search {
+  opacity: 1;
+  visibility: visible;
+  transform: scaleY(1);
+}
+.select-dropdown-search{
+  padding: 0;
+  width: 146px;
+  top: 55px;
+  z-index: 10000;
+  transition: 0.1s ease;
+}
+.select-dropdown-search input[type="radio"] {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  display: none;
+}
+.select-dropdown-search li label{
+  gap: 0;
+  font-size: 14px;
+ }
+
+.selected-value-search {
+  font-size: 14px;
 }

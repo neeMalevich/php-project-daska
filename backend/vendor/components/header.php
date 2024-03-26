@@ -34,15 +34,50 @@ include __DIR__ . '/../function.php';
             </a>
 
             <div class="search-boxq__inner">
-                <form class="search-boxq">
+                <div class="search-boxq">
+                    <div class="custom-select-search">
+                        <?php
+                        $categories = get_categories();
+
+                        $catId = isset($_GET['cat']) ? (int)$_GET['cat'] : null;
+                        $category_name = get_category_by_id($catId);
+
+                        ?>
+                        <div class="select-button-search">
+                            <button class="select-button">
+                                <span class="selected-value-search"><?= $category_name ? $category_name : 'Категория'; ?></span>
+                                <span class="arrow"></span>
+                            </button>
+                            <ul class="select-dropdown-search" role="listbox" id="select-dropdown-search">
+
+                                <li role="option search_cat_all">
+                                    <input type="radio" id="search_cat_all" name="" />
+                                    <label for="search_cat_all">
+                                        <i class="bx bxl-price-low"></i>
+                                        Все категории
+                                    </label>
+                                </li>
+
+                                <?php foreach ($categories as $category) : ?>
+                                    <li role="option">
+                                        <input type="radio" id="search_cat_<?= $category['id']; ?>" name="<?= $category['id']; ?>" />
+                                        <label for="search_cat_<?= $category['id']; ?>">
+                                            <i class="bx bxl-price-low"></i>
+                                            <?= $category['name']; ?>
+                                        </label>
+                                    </li>
+                                <?php endforeach; ?>
+
+                            </ul>
+                        </div>
+                    </div>
+
                     <input class="search-inputq" type="search" placeholder="Поиск...">
                     <button type="search" class="search-btnq">
                         <img src="/assets/images/search.svg" alt="Поиск" class="search-img">
                     </button>
-                </form>
-                <div class="search-boxq__result">
-
                 </div>
+                <div class="search-boxq__result"></div>
             </div>
 
             <div class="header__right">

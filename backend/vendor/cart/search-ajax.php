@@ -6,14 +6,23 @@ include __DIR__ . '/../function.php';
 global $connect;
 
 $name = $_POST['name'];
+$cat = $_POST['cat'];
 
 $products = [];
 
 if (!empty($name) && $name !== '') {
-    $query = "SELECT * FROM products 
-            WHERE name LIKE '%$name%' 
-            OR price LIKE '%$name%' 
-            OR description LIKE '%$name%'";
+    if (!empty($cat)) {
+        $query = "SELECT * FROM products 
+                WHERE (name LIKE '%$name%' 
+                OR price LIKE '%$name%' 
+                OR description LIKE '%$name%')
+                AND category_id = $cat";
+    } else {
+        $query = "SELECT * FROM products 
+                WHERE name LIKE '%$name%' 
+                OR price LIKE '%$name%' 
+                OR description LIKE '%$name%'";
+    }
 
     $result = mysqli_query($connect, $query);
 
