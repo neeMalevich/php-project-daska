@@ -5,6 +5,10 @@
         const selectedValue = document.querySelector('.selected-value');
         const selectDropdown = document.getElementById('select-dropdown');
 
+        const customSelectSearch = document.querySelector('.custom-select-search');
+        const selectedValueSearch = document.querySelector('.selected-value-search');
+        const selectDropdownSearch = document.getElementById('select-dropdown-search');
+
         let selectedOptions = {
             "material": [],
             "color": [],
@@ -12,9 +16,57 @@
             'price_min': '0',
             'price_max': '9999999',
             'category': "<?= $_GET['cat']; ?>",
+            "search": '',
+            "search_project": '',
+            "search_name": '',
             "sort": ''
         };
 
+        function handleOptionClickSearch(e) {
+            // e.preventDefault();
+
+            if (e.target.tagName === 'LABEL') {
+                console.log('dsds')
+                const textContent = e.target.textContent.trim();
+                selectedValueSearch.textContent = textContent;
+                customSelectSearch.classList.remove('active');
+
+                console.log(textContent)
+
+                const name = e.target.previousElementSibling.getAttribute('name');
+
+                if (textContent === 'По названию') {
+                    selectedOptions['search_name'] = name;
+                    selectedOptions['search_project'] = '';
+                }
+                if (textContent === 'По производителю') {
+                    selectedOptions['search_project'] = name;
+                    selectedOptions['search_name'] = '';
+                }
+
+                updateData(selectedOptions);
+            }
+        }
+
+        function closeDropdown() {
+            customSelectSearch.classList.remove('active');
+        }
+
+        customSelectSearch.addEventListener('click', function() {
+            customSelectSearch.classList.toggle('active');
+        });
+
+        customSelectSearch.addEventListener('mouseleave', function() {
+            setTimeout(closeDropdown, 200); // Задержка перед закрытием выпадающего списка
+        });
+
+        selectDropdownSearch.addEventListener('click', handleOptionClickSearch);
+
+        $('.search-inputq').on('input', function () {
+            let name = $(this).val();
+            selectedOptions['search'] = name;
+            updateData(selectedOptions);
+        });
 
         $(".accordion-price_input").on("change", function () {
             let priceMin = $("input[name='price_min']").val();
@@ -68,7 +120,9 @@
                 'price_min': '',
                 'price_max': '',
                 'category': "<?= $_GET['cat']; ?>",
-                "sort": ''
+                "search-name": '',
+                "search-project": '',
+                "sort": '',
             };
 
             // Очистка значений в элементах <input>
@@ -113,7 +167,11 @@
                     price_max: dataObject.price_max,
                     price_min: dataObject.price_min,
                     category: dataObject.category,
-                    sort: dataObject.sort
+                    search: dataObject.search,
+                    searchProject: dataObject.search_project,
+                    searchName: dataObject.search_name,
+                    sort: dataObject.sort,
+
                 },
                 success: function (response) {
                     $('.catalog__inner').html(response);

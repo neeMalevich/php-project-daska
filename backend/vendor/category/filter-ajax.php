@@ -14,6 +14,10 @@ $priceMin = $_POST['price_min'];
 $category = $_POST['category'];
 $sort = $_POST['sort'];
 
+$search = $_POST['search'];
+$searchProject = $_POST['searchProject'];
+$search_name = $_POST['searchName'];
+
 $query = "SELECT * FROM products";
 $conditions = [];
 
@@ -36,10 +40,25 @@ if (isset($maker) && !empty($maker) && is_array($maker)) {
 if ($priceMax && $priceMin) {
     $conditions[] = "price BETWEEN $priceMin AND $priceMax";
 }
+if (!empty($search) && $search !== '') {
+    $conditions[] = " (name LIKE '%$search%' 
+                OR price LIKE '%$search%' 
+                OR description LIKE '%$search%')
+                ";
+}
+
+if (!empty($searchProject)) {
+    $conditions[] = "maker_id IN (
+        SELECT maker_id FROM makers WHERE maker LIKE '%$searchProject%'
+    )";
+}
 
 if (!empty($conditions)) {
-    $query .= " WHERE " . implode(" AND ", $conditions);
+    $query .= " WHERE " . implode(" OR ", $conditions);
 }
+
+debug($query);
+
 
 if (isset($sort) && !empty($sort)) {
     switch ($sort) {
