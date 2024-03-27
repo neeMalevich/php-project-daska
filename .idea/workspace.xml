@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe0a09fd-702f-47c4-b230-deaa72b9f7a2" name="Changes" comment="работата с категориями">
+      <change afterPath="$PROJECT_DIR$/backend/vendor/components/search.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/vendor/category/filter-ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/category/filter-ajax.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/vendor/components/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/vendor/components/header.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +97,7 @@
       <workItem from="1711311597569" duration="8913000" />
       <workItem from="1711400986635" duration="8103000" />
       <workItem from="1711486002233" duration="12533000" />
-      <workItem from="1711560908594" duration="10257000" />
+      <workItem from="1711560908594" duration="11639000" />
     </task>
     <task id="LOCAL-00001" summary="работата с категориями">
       <created>1708823272423</created>
