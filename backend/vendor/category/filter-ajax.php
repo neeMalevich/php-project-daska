@@ -16,7 +16,7 @@ $sort = $_POST['sort'];
 
 $search = $_POST['search'];
 $searchProject = $_POST['searchProject'];
-$search_name = $_POST['searchName'];
+$searchName = $_POST['searchName'];
 
 $query = "SELECT * FROM products";
 $conditions = [];
@@ -40,25 +40,24 @@ if (isset($maker) && !empty($maker) && is_array($maker)) {
 if ($priceMax && $priceMin) {
     $conditions[] = "price BETWEEN $priceMin AND $priceMax";
 }
-if (!empty($search) && $search !== '') {
-    $conditions[] = " (name LIKE '%$search%' 
-                OR price LIKE '%$search%' 
-                OR description LIKE '%$search%')
-                ";
-}
-
-if (!empty($searchProject)) {
-    $conditions[] = "maker_id IN (
-        SELECT maker_id FROM makers WHERE maker LIKE '%$searchProject%'
-    )";
-}
 
 if (!empty($conditions)) {
     $query .= " WHERE " . implode(" OR ", $conditions);
 }
 
-debug($query);
-
+if (isset($search) && !empty($search)) {
+    switch ($search) {
+        case !empty($searchName):
+            $query = "SELECT * FROM products WHERE (name LIKE '%$search%' OR price LIKE '%$search%' OR description LIKE '%$search%')";
+            break;
+        case !empty($searchProject):
+            $query = "SELECT * FROM products WHERE maker_id IN (SELECT maker_id FROM makers WHERE maker LIKE '%$search%')";
+            break;
+        case !empty($search):
+            $query = "SELECT * FROM products WHERE maker_id IN (SELECT maker_id FROM makers WHERE maker LIKE '%$search%') OR (name LIKE '%$search%' OR price LIKE '%$search%' OR description LIKE '%$search%')";
+            break;
+    }
+}
 
 if (isset($sort) && !empty($sort)) {
     switch ($sort) {
